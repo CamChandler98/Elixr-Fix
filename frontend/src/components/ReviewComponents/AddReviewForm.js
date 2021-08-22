@@ -32,6 +32,9 @@ img{
     max-height: 90px;
     object-fit: cover;
 }
+.camera-button:hover{
+    transform: scale(1.07);
+}
 .remove{
     width:90px;
     margin: 2%;
@@ -45,6 +48,9 @@ img{
     background-color:  rgb(198, 135, 231);
     color: #fff;
     font-weight: 500;
+}
+.submit:hover{
+    background-color:  rgb(162 99 195);
 }
 .rating-container{
     display:flex;
@@ -165,8 +171,8 @@ const AddReviewForm = ({drinkId , closeModal}) =>{
                     >
                     </textarea>
                      <label htmlFor ='add-photo'>
-                    <input id ='add-photo'type="file" onChange={updateFile} />
-                       <img src = {tempImgUrl ? tempImgUrl: cameraButton} onClick ={tempImgUrl ? (e)=> {e.preventDefault()} : null} alt = 'submit-phot'/>
+                    <input id ='add-photo' type="file" onChange={updateFile} />
+                       <img src = {tempImgUrl ? tempImgUrl: cameraButton} className = {tempImgUrl? null: 'camera-button'} onClick ={tempImgUrl ? (e)=> {e.preventDefault()} : null} alt = 'submit-phot'/>
                        {tempImgUrl && <button className ='remove' onClick ={ e => {
                            removeImage(e)
                        }}>remove</button>}

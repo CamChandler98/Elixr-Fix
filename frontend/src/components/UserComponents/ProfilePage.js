@@ -8,6 +8,8 @@ import DrinkDetails from "../DrinkComponents/DrinkDetailComponents/DrinkDetails"
 import UserReviews from '../ReviewComponents/UserReviews'
 import styled from "styled-components"
 import DrinkFormModal from "../DrinkComponents/AddDrinkFormModal"
+import EditDrinkFormModal from "../DrinkComponents/EditDrinkModal"
+import DeleteDrinkModal from "../DrinkComponents/DeleteDrinkModal"
 
 let ProfileSty = styled.div`
     .main-content{
@@ -24,7 +26,7 @@ let ProfileSty = styled.div`
     }
     h3{
         margin: .5% 0;
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .profile-header{
@@ -52,6 +54,16 @@ let ProfileSty = styled.div`
     .focused{
         color: rgb(117 66 144);
         font-weight: bold;
+    }
+    .drink-stuff{
+        display: flex;
+        gap: 30px;
+    }
+    .drink-buttons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-right: 30px;
     }
 `
 
@@ -138,12 +150,16 @@ const ProfilePage = () => {
         </div>
         <div className = 'focus-content'>
             {reviews && focus === 'user' && <UserReviews reviews = {reviews} />}
-            {drinks && owner && focus === 'drinks' && <DrinkFormModal/>}
+            {drinks && owner &&focus === 'drinks' && <DrinkFormModal/>}
             {drinks && focus === 'drinks' && drinks.map(drink => {
                 return (
-                    <>
-                    <DrinkDetails key = {drink.id} drinkId = {drink.id}/>
-                    </>
+                    <div className = 'drink-stuff'>
+                    <DrinkDetails key = {drink.id} drinkId = {drink.id} />
+                     {owner &&<div className = 'drink-buttons'>
+                        <EditDrinkFormModal drink = {drink} />
+                        <DeleteDrinkModal drinkId = {drink.id}/>
+                    </div>}
+                    </div>
                 )
             })}
 

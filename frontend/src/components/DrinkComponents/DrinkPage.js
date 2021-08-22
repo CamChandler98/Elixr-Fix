@@ -60,8 +60,11 @@ let DrinkPageDetailsSty = styled.div`
 
         .review-button{
             width: 70px;
-            transform: rotate(10deg);
+
             margin-left: auto;
+        }
+        .review-button:hover{
+            transform: scale(1.09)
         }
 
         .reviews{

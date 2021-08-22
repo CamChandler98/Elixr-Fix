@@ -44,15 +44,7 @@ const validateSignup = [
       .exists({ checkFalsy: true })
       .isLength({ min: 6 })
       .withMessage('Password must be 6 characters or more.'),
-      check('confirmPassword')
-      .exists({ checkFalsy: true })
-      .withMessage('Must confirm your password')
-      .custom((value, { req }) => {
-          if (value !== req.body.password) {
-              throw new Error('Confirm Password does not match Password');
-          }
-          return true;
-      }),
+
     handleValidationErrors,
   ];
 

@@ -2,6 +2,7 @@
 
 
 import styled from 'styled-components'
+import EditDrinkFormModal from '../EditDrinkModal'
 import DrinkDetailStyled from './DrinkOwnedDetails'
 const { useEffect } = require("react")
 const { useSelector, useDispatch } = require("react-redux")
@@ -19,7 +20,9 @@ let DetailsSty = styled.div`
     padding-left: 60px;
     margin-left: 20px
 }
-
+.average-rating{
+    text-align: center;
+}
 .drink-details{
     margin: 0px 0px 0px 10px;
     background-color:white;
@@ -39,12 +42,14 @@ let DetailsSty = styled.div`
 }
 `
 const DrinkDetailsUnstyled = ({drinkId}) =>{
+
     let dispatch = useDispatch()
 
     useEffect(()=>{
         if(drinkId){
         dispatch(getOneDrink(parseInt(drinkId)))}
     },[dispatch,drinkId])
+
 
     let drink = useSelector(state => state.drinks[drinkId])
 

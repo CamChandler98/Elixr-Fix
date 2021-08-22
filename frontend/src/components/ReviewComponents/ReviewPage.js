@@ -117,7 +117,7 @@ const ReviewPage = () =>{
                 </div>
                 </div>
                 <div className =' review-image'>
-                <img alt= 'review' src = {review?.imageUrl}/>
+                {review?.imageUrl && <img alt= 'review' src = {review?.imageUrl}/>}
                 </div>
                 </div>
             }

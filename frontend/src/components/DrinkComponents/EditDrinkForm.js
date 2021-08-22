@@ -1,17 +1,16 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import styled from "styled-components"
-import { addDrink } from "../../store/drinks"
+import { editDrink } from "../../store/drinks"
 import {thumbImages} from "../DrinkComponents/image-handler"
 
-let AddDrinkSty = styled.div`
+let EditDrinkSty = styled.div`
     form{
         display:flex;
         flex-direction:column;
         gap:10px;
-        padding: 2%;
+        padding: 4%;
         margin:0;
-        align-items:center
     }
     img{
         width:50px;
@@ -41,39 +40,14 @@ let AddDrinkSty = styled.div`
           align-items: center;
           font-weight: bold;
       }
-      button{
-        width: 50%;
-        height: 30px;
-        border-radius: 8px;
-        border: 0px;
-        background-color:  rgb(198, 135, 231);
-        color: #fff;
-        font-weight: 500;
-      }
-
-      [type=text]{
-          width: 75%;
-          text-align:center;
-      }
-      [type=text]:focus{
-          outline-color:  rgb(198, 135, 231)
-      }
-      textarea{
-          width:75%;
-          resize:none;
-      }
-      textarea:focus{
-        outline-color:  rgb(198, 135, 231);
-
-      }
 
 `
 
-let AddDrinkForm = ({closeModal})=> {
+let EditDrinkForm = ({closeModal, drink})=> {
     const dispatch = useDispatch()
-    const [name,setName] = useState('')
-    const [description, setDescription] = useState('')
-    const[ categoryId, setCategoryId] = useState(null)
+    const [name,setName] = useState(drink.name)
+    const [description, setDescription] = useState(drink.description)
+    const[ categoryId, setCategoryId] = useState(drink.categoryId)
     const [errors, setErrors] = useState([]);
 
     const creatorId = useSelector( state => state.session.user.id)
@@ -87,7 +61,7 @@ let AddDrinkForm = ({closeModal})=> {
         if(!categoryId) errors.push('please select a school')
 
         if(errors.length === 0){
-       dispatch(addDrink({name,description,categoryId,creatorId}))
+       dispatch(editDrink({id: drink.id, name,description,categoryId,creatorId}))
             closeModal()
     }else{
         setErrors(errors)
@@ -97,7 +71,7 @@ let AddDrinkForm = ({closeModal})=> {
     }
 
     return(
-        <AddDrinkSty>
+        <EditDrinkSty>
         <>
             <form onSubmit = {async (e) => {
                 await handleSubmit(e)
@@ -106,7 +80,7 @@ let AddDrinkForm = ({closeModal})=> {
                 <label htmlFor = 'name'>
                     Name
                 </label>
-                <input type = 'text' placeholder = 'What is it called?' onChange ={e => setName(e.target.value)}></input>
+                <input type = 'text' placeholder = 'What is your potion called' onChange ={e => setName(e.target.value)} value = {name}></input>
                 <label htmlFor = 'description'>Description</label>
                     <textarea
                         id = 'description'
@@ -189,8 +163,8 @@ let AddDrinkForm = ({closeModal})=> {
                 <button type = 'submit'>Submit</button>
             </form>
         </>
-        </AddDrinkSty>
+        </EditDrinkSty>
     )
 }
 
-export default AddDrinkForm
+export default EditDrinkForm

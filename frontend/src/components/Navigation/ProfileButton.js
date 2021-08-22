@@ -13,6 +13,7 @@ const ProfileButtonSty = styled.div`
   }
   img:hover{
     cursor: pointer;
+    transform: scale(1.07);
   }
 `
 

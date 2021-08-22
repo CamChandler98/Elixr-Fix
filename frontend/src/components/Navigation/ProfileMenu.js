@@ -6,6 +6,7 @@ import styled from "styled-components"
 let ProfileMenuSty = styled.div`
     position: absolute;
     right: 4.5%;
+    top: 19%;
     background-color: rgb(47, 53, 59);
     padding: 2%;
     box-shadow:box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
@@ -25,8 +26,14 @@ let ProfileMenuSty = styled.div`
     a:hover{
         color: rgba(169,140,209,1);
     }
+    .menuLink:hover{
+        color: rgba(169,140,209,1);
+    }
     .welcome{
         font-size: 18px;
+    }
+    .active{
+        color: rgba(169,140,209,1);
     }
 `
 
@@ -44,7 +51,7 @@ const ProfileMenu = ({logout}) => {
                 My Profile
                 </NavLink>
             </li>
-            <li onClick = {logout}>
+            <li className = 'menuLink' onClick = {logout}>
                 Logout
             </li>
         </ul>
