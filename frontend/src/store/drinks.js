@@ -55,6 +55,8 @@ export const addDrink = (drink) => async (dispatch) => {
         console.log(drink)
         dispatch(addOneDrink(drink))
         return
+    }else{
+        return res
     }
 }
 

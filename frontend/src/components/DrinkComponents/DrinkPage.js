@@ -23,8 +23,7 @@ let DrinkPageDetailsSty = styled.div`
         text-decoration: none
     }
     img{
-        width:120
-        px;
+        width:120px;
     }
     h3{
         margin: 2% 0;
@@ -61,7 +60,8 @@ let DrinkPageDetailsSty = styled.div`
 
         .review-button{
             width: 70px;
-            transform: rotate(10deg)
+            transform: rotate(10deg);
+            margin-left: auto;
         }
 
         .reviews{

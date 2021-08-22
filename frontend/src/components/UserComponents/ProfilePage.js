@@ -117,7 +117,7 @@ const ProfilePage = () => {
 
     let drinksState = useSelector( state => state.drinks)
 
-    let drinks = Object.values(drinksState).filter(drink => drink.creatorId === user.id)
+    let drinks = Object.values(drinksState).filter(drink => drink.creatorId === user.id).reverse()
 
     useEffect(()=>{
 
@@ -138,7 +138,7 @@ const ProfilePage = () => {
         </div>
         <div className = 'focus-content'>
             {reviews && focus === 'user' && <UserReviews reviews = {reviews} />}
-            {drinks && focus === 'drinks' && <DrinkFormModal/>}
+            {drinks && owner && focus === 'drinks' && <DrinkFormModal/>}
             {drinks && focus === 'drinks' && drinks.map(drink => {
                 return (
                     <>
