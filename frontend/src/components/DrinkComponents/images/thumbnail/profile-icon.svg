@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <circle style="fill: rgb(198, 135, 231);" cx="247.423" cy="239.322" r="148.896" transform="matrix(1.501977, 0, 0, 1.351136, -128.250565, -89.925621)"/>
+  <g>
+    <rect x="182.903" y="215.332" width="128.083" height="167.585" style="fill: rgb(255, 255, 255);" rx="43.446" ry="43.446"/>
+    <circle style="fill: rgb(255, 255, 255);" cx="248.158" cy="172.313" r="59.205" transform="matrix(1.325213, 0, 0, 1.173771, -81.440491, -38.656353)"/>
+  </g>
+</svg>

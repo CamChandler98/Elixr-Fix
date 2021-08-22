@@ -1,0 +1,7 @@
+.drinks-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4%;
+    margin-left: 15%;
+    max-width: 800px;
+}

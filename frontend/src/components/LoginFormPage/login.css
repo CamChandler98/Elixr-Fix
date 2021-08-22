@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Cookie&family=Mystery+Quest&display=swap');
+*{
+    font-size: 16px;
+}
+h2 {
+    color: black;
+    font-family: 'Lato';
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    /* letter-spacing: 5px; */
+}
+/* body {
+    background: rgb(143,69,182);
+    background: linear-gradient(330deg, rgba(143,69,182,1) 0%, rgba(169,140,209,1) 100%);
+    box-sizing: border-box;
+} */
+
+main {
+    background: rgb(143,69,182);
+    background: linear-gradient(330deg, rgba(143,69,182,1) 0%, rgba(169,140,209,1) 100%);
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    margin:0px;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+form {
+    margin-top: 25%;
+    margin-bottom: 25%;
+    box-sizing: border-box;
+}
+
+.form-button {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    height: 40px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: #5F1A37;
+    font-size: 14px;
+    border-radius: 6px;
+    text-justify: center;
+}
+
+.form-button:hover {
+    background-color: #7a3202;
+}
+
+.signup {
+    margin-top: 5px;
+}
+/*wrap form */
+.form-container {
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    padding: 10% 10%;
+    gap: 10px;
+    box-shadow: 2px 2px 1px 0px rgba(68, 67, 67, 0.623);
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+.form-container h2 {
+    text-align: center;
+    margin: 5px 10px 25px;
+}
+/* wrap label and inputs with .form group div */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 5%;
+    padding: 2%
+}
+
+/* give inputs .form-control class*/
+.form-control {
+    margin: 0px 0px 0px ;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid rgb(32, 30, 30);
+    height: 40px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+/* add to text area instead of .form-control */
+.text-control {
+    margin: 2px 0px 20px;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid rgb(32, 30, 30);
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    padding: 5%;
+    resize: none;
+}
+
+.text-review {
+    border: 1px solid;
+}
+
+select.form-control {
+    width: 20%;
+}
+
+#edit-content {
+    display: flex;
+    flex-direction: column;
+}
+.edit-center {
+    align-self: center;
+    font-weight: bold;
+}
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.error p{
+    color: red;
+}
+
+.error li {
+    /* display: flex;
+    flex-direction: column; */
+    color: red;
+    list-style-position: inside;
+    text-align: center;
+}
+
+.form-group  p {
+    text-align: center;
+}
+
+a.form-group {
+    box-sizing: content-box;
+    margin-top: 0px;
+    text-decoration: none;
+}
+
+#demo-container {
+    box-sizing: content-box;
+    margin-top: 0px;
+}
