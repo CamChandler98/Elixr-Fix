@@ -31,7 +31,9 @@ router.get('/:userId', asyncHandler(async (req,res) => {
         where:{
             userTwoId: userId,
             pending: true
-        }
+        },
+        include:[{model: User, as: 'sender'}, {model: User, as: 'reciever'}
+    ]
     })
 
     res.json(usersRequests)
