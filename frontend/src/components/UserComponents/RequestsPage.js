@@ -5,6 +5,7 @@ import { getFriendRequests } from "../../store/friends"
 import AcceptRequestButton from "./AcceptRequestButton"
 import styled from 'styled-components'
 import { NavLink} from 'react-router-dom'
+import DenyRequestButton from "./DenyRequestButton"
 
 const RequestSty = styled.div`
     margin-top: 7%;
@@ -36,12 +37,13 @@ const RequestSty = styled.div`
     }
     .request-and-buttons{
         display: flex;
-        gap: 10px;
+        gap: 25px;
         align-items:center;
         background-color: #f6f1f7;
-        max-width: fit-content;
+        width: 300px;
         padding: 4%;
         border-radius: 7px;
+
     }
 `
 
@@ -68,7 +70,10 @@ const RequestPage = () =>{
                 return(
                 <div className = 'request-and-buttons'>
                 <span>Request from <NavLink to = {`/users/${request?.sender?.username}`}>{request?.sender?.username}</NavLink></span>
+                <div className = 'buttons'>
                 <AcceptRequestButton request = {request} />
+                <DenyRequestButton request = {request} />
+                </div>
                 </div>)
             })}
         </div>
