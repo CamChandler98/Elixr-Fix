@@ -29,7 +29,31 @@ router.post('/', asyncHandler( async (req,res)=> {
 
      let newRecord = await Friend.create({userOneId,userTwoId})
 
+     let requests = await Request.findAll({
+        where:{
+            [Op.and]: {userOneId,userTwoId}
+        }
+    })
+
+    for( request in requests){
+        request.destroy()
+    }
+
      res.json(newRecord)
 }))
 
+router.delete('/', asyncHandler (async (req,res) => {
+    let {userOneId,userTwoId} = req.body
+    let friendCheck = await Friend.findAll({
+        where: {
+            userOneId:{[Op.or]: [userOneId,userTwoId]},
+            userTwoId: {[Op.or] : [userOneId,userTwoId]}
+        }
+    })
+
+    for( record of friendCheck){
+        record.destroy()
+    }
+    res.json('ok')
+}))
 module.exports = router
