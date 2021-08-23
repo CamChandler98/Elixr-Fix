@@ -28,7 +28,7 @@ const RequestButton = ({userTwoId, friends}) =>{
                     body: JSON.stringify(users)
                 })
                 let check = await res.json()
-                console.log(check)
+             
                 if(check === true){
                     setPending(true)
                 }else{

@@ -60,7 +60,7 @@ const RequestPage = () =>{
     let requestState = useSelector(state => state.friends?.requests)
 
     let requests = Object.values(requestState)
-    console.log(requests)
+ 
 
     return (
         <RequestSty>

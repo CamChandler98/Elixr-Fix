@@ -133,14 +133,14 @@ const ProfilePage = () => {
 
             async function fetchData(){
             let users = {userOneId: userId,userTwoId: user.id}
-            console.log(users, user)
+        
             let res = await csrfFetch('/api/friends/check',{
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(users)
             })
             let check = await res.json()
-            console.log(check)
+
             if(check === true){
                 setFriends(true)
             }else{

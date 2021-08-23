@@ -46,7 +46,7 @@ const FriendsList = () => {
     },[userId,dispatch])
     let friendState = useSelector(state => state.friends?.friends)
     let friends = Object.values(friendState)
-    console.log(friends)
+
 
     return(
 

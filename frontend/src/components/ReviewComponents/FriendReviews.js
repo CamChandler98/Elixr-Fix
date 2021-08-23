@@ -19,7 +19,7 @@ const FriendReviews = ({userId}) => {
     },[])
     let reviewsSate = useSelector(state => state.reviews)
     let reviews = Object.values(reviewsSate)
-    console.log('reviews', reviews)
+
     useEffect(() =>{
         for (let friend of friends){
 
