@@ -75,6 +75,8 @@ router.delete('/:requestId', asyncHandler (async (req,res)=> {
 
         await request.destroy()
 
+        res.json('destroy')
+
 }))
 
 module.exports = router
