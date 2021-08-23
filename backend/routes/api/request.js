@@ -39,8 +39,13 @@ router.post('/', asyncHandler(async (req,res) => {
     res.json(newRequest)
 }))
 
-router.put('/:requestId', asyncHandler( async (req,res) => {
+router.delete('/:requestId', asyncHandler (async (req,res)=> {
+        let {requestId} = req.body
 
-} ))
+        let request = Request.findByPk(requestId)
+
+        await request.destroy()
+
+}))
 
 module.exports = router
