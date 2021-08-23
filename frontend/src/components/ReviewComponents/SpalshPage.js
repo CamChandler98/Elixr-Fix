@@ -53,7 +53,7 @@ let NavSty = styled.div`
     flex-direction: column;
     align-items:center;
     background-color: white;
-    padding: 3%;
+    padding: 7% 3%;
     gap:25px;
     width:300px;
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
@@ -65,6 +65,10 @@ let NavSty = styled.div`
         color: white;
         padding: 5% 15%;
         border-radius: 5px;
+    }
+    .or{
+        font-family: "Lato";
+        font-size: 20px;
     }
 `
 let SpalshPage = ({isLoaded}) => {
@@ -118,7 +122,7 @@ let SpalshPage = ({isLoaded}) => {
                     <span>Signup</span>
                 </NavLink>
                 <a onClick = {demoLogin}>Demo</a>
-                <span>or</span>
+                <span className = 'or'>or</span>
                 <NavLink to = '/categories'>
                 <span>Take A Look Around </span>
                 </NavLink>
