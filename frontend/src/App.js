@@ -14,6 +14,7 @@ import ReviewPage from "./components/ReviewComponents/ReviewPage";
 import SpalshPage from "./components/ReviewComponents/SpalshPage";
 import ProfilePage from "./components/UserComponents/ProfilePage";
 import AboutPage from "./components/AboutComponents/AboutPage";
+import RequestPage from "./components/UserComponents/RequestsPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -58,6 +59,9 @@ function App() {
           </Route>
           <Route path = '/users/:username'>
             <ProfilePage />
+          </Route>
+          <Route path = '/friendrequests'>
+            <RequestPage></RequestPage>
           </Route>
         </Switch>
       )
