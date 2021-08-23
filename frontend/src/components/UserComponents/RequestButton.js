@@ -13,42 +13,51 @@ const RequestButtonSty = styled.div`
         margin-top: 6px;
     }
 `
-const RequestButton = ({userTwoId}) =>{
-    const [pending, setPending] = useState(true)
-    const [friends, setFriends] = useState(false)
+const RequestButton = ({userTwoId, friends}) =>{
+    const [pending, setPending] = useState(null)
 
     let userOneId = useSelector(state => state.session.user?.id)
-        useEffect(async ()=> {
+
+        useEffect(()=> {
             let users = {userOneId,userTwoId}
-            let res = await csrfFetch('/api/requests/check',{
+            async function fetchData(){
+
+                let res = await csrfFetch('/api/requests/check',{
+                    method: 'post',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(users)
+                })
+                let check = await res.json()
+                console.log(check)
+                if(check === true){
+                    setPending(true)
+                }else{
+                    setPending(false)
+                }
+            }
+            fetchData()
+            return setPending(true)
+        },[userTwoId, userTwoId])
+
+    const sendRequest = async () =>{
+        let users = {userOneId,userTwoId}
+        async function fetchData(){
+
+            let res = await csrfFetch('/api/requests',{
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(users)
             })
-            let check = await res.json()
-            console.log(check)
-            if(check === true){
+            if(res.ok){
                 setPending(true)
-            }else{
-                setPending(false)
             }
-        },[userTwoId])
-
-    const sendRequest = async () =>{
-        let users = {userOneId,userTwoId}
-        let res = await csrfFetch('/api/requests',{
-            method: 'post',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(users)
-        })
-        if(res.ok){
-            setPending(true)
         }
+        fetchData()
     }
     return (
         <RequestButtonSty>
         <>
-        {<button onClick ={!pending ? sendRequest: null}>{pending ? 'Request Pending': 'Send Friend Request'}</button>}
+        {<button onClick ={pending === false ? sendRequest: null}>{pending === true? 'Request Pending': friends === true ? 'Congrats! Friends!': 'Send Request'}</button>}
         </>
         </RequestButtonSty>
     )

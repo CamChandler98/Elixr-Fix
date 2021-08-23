@@ -11,6 +11,7 @@ import DrinkFormModal from "../DrinkComponents/AddDrinkFormModal"
 import EditDrinkFormModal from "../DrinkComponents/EditDrinkModal"
 import DeleteDrinkModal from "../DrinkComponents/DeleteDrinkModal"
 import RequestButton from "./RequestButton"
+import { csrfFetch } from "../../store/csrf"
 
 let ProfileSty = styled.div`
     .main-content{
@@ -71,6 +72,7 @@ let ProfileSty = styled.div`
 const ProfilePage = () => {
     const [focus, setFocus] = useState('user')
     let [owner,setOwner] = useState(false)
+    let [friends, setFriends] = useState(undefined)
     let {username} = useParams()
 
     const switchFocus = (target,e) =>{
@@ -120,6 +122,29 @@ const ProfilePage = () => {
     },[ user.id, userId,dispatch])
 
 
+    useEffect(()=> {
+
+            async function fetchData(){
+            let users = {userOneId: userId,userTwoId: user.id}
+            console.log(users, user)
+            let res = await csrfFetch('/api/friends/check',{
+                method: 'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(users)
+            })
+            let check = await res.json()
+            console.log(check)
+            if(check === true){
+                setFriends(true)
+            }else{
+                setFriends(false)
+            }
+        }
+        if(userId !== undefined && user.id !== undefined){
+        fetchData()}
+
+        return(setFriends(false))
+    },[user,userId])
 
     let reviews = useSelector (state => state.reviews.userReviews)
 
@@ -144,7 +169,8 @@ const ProfilePage = () => {
             {reviews && <h3>Total Reviews: {reviews.length}
             </h3>}
             {drinks && <h3>Brewed {drinks.length} {drinks.length === 1   ? 'Potion': 'Potions'}</h3>}
-            {!owner  && <RequestButton userTwoId = {user.id} />}
+            {/* {!owner && friends && <h3>Congrats on your friendship!</h3>} */}
+            {!owner  && friends!== undefined && <RequestButton friends = {friends} userTwoId = {user.id} />}
         </div>
         <div className = 'switch-bar'>
             <span className ='bar-item focused' onClick = {(e)=> switchFocus('user',e)}>{owner ? 'Your': user?.username} Reviews</span>
@@ -155,8 +181,8 @@ const ProfilePage = () => {
             {drinks && owner &&focus === 'drinks' && <DrinkFormModal/>}
             {drinks && focus === 'drinks' && drinks.map(drink => {
                 return (
-                    <div className = 'drink-stuff'>
-                    <DrinkDetails key = {drink.id} drinkId = {drink.id} />
+                    <div className = 'drink-stuff'key = {drink.id}>
+                    <DrinkDetails  drinkId = {drink.id} />
                      {owner &&<div className = 'drink-buttons'>
                         <EditDrinkFormModal drink = {drink} />
                         <DeleteDrinkModal drinkId = {drink.id}/>

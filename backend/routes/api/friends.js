@@ -6,7 +6,21 @@ const { Op } = require('sequelize');
 
 const router = express.Router();
 
+router.post('/check', asyncHandler (async (req,res) => {
+    let {userOneId,userTwoId} = req.body
+    let friendCheck = await Friend.findAll({
+        where: {
+            userOneId:{[Op.or]: [userOneId,userTwoId]},
+            userTwoId: {[Op.or] : [userOneId,userTwoId]}
+        }
+    })
 
+    if(friendCheck.length > 0){
+        res.json(true)
+    }else{
+        res.json(false)
+    }
+}))
 router.get('/:userId', asyncHandler( async (req,res) => {
     let {userId} = req.params
     let friends = await Friend.getUserFriends(userId)

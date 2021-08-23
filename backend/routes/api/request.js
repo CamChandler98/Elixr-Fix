@@ -46,8 +46,16 @@ router.post('/', asyncHandler(async (req,res) => {
         }
     })
 
-    if(requestCheck.length >= 1)return res.json('already requested')
+    let friendCheck = await Friend.findAll({
+        where: {
+            userOneId:{[Op.or]: [userOneId,userTwoId]},
+            userTwoId: {[Op.or] : [userOneId,userTwoId]}
+        }
+    })
 
+
+    if(requestCheck.length >= 1)return res.json('already requested')
+    if(friendCheck.length > 0) return res.json('already friends')
 
     let newRequest = await Request.create({
         userOneId,
