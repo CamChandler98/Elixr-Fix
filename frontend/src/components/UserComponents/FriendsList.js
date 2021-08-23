@@ -7,7 +7,8 @@ import { goGetFriends } from "../../store/friends"
 const FriendSty = styled.div`
     display:flex;
     flex-direction:column;
-    margin:5%;
+    margin:5% 10%;
+
 
     h1{
         font-size:50px;
@@ -18,6 +19,9 @@ const FriendSty = styled.div`
         display:flex;
         flex-direction:column;
         gap:20px;
+        box-shadow: 1px 2px 8px 5px rgb(0 0 0 / 10%);
+        width: 800px;
+        padding:2%
     }
     .list a{
         font-size: 20px;
@@ -52,7 +56,7 @@ const FriendsList = () => {
             <h1>Your Friends</h1>
             <div className = 'list'>
                 {friends.map( friend => {
-                    let name = friend.userOneId === userId ? friend.two.username: friend.one.username
+                    let name = friend?.userOneId === userId ? friend?.two?.username: friend?.one?.username
                    return( <div key = {friend.id}>
                         <NavLink to = {`/users/${name}`}>
                             {name}

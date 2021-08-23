@@ -12,7 +12,7 @@ router.get('/' , asyncHandler( async (req,res) => {
             {model: Drink, attributes: ['name'], include:[User]} ,
             {model: User, attributes: ['username']},
 
-        ],limit: 30
+        ],limit: 90
     })
     res.json(reviews)
 }))

@@ -50,6 +50,10 @@ const ProfileMenu = ({logout}) => {
                 <NavLink to = {`/users/${sessionUser?.username}`}>
                 My Profile
                 </NavLink>
+            </li><li>
+                <NavLink to = '/friends'>
+                    My Friends
+                </NavLink>
             </li>
             <li className = 'menuLink' onClick = {logout}>
                 Logout

@@ -13,6 +13,7 @@ import DeleteDrinkModal from "../DrinkComponents/DeleteDrinkModal"
 import RequestButton from "./RequestButton"
 import { csrfFetch } from "../../store/csrf"
 import RequestPage from "./RequestsPage"
+import FriendReviews from "../ReviewComponents/FriendReviews"
 
 let ProfileSty = styled.div`
     .main-content{
@@ -96,6 +97,8 @@ const ProfilePage = () => {
             case 'requests':
                 setFocus('requests')
                 break;
+            case 'friends':
+                setFocus('friends')
             default:
                 break;
         }
@@ -180,6 +183,7 @@ const ProfilePage = () => {
             <span className ='bar-item focused' onClick = {(e)=> switchFocus('user',e)}>{owner ? 'Your': user?.username} Reviews</span>
             <span className ='bar-item' onClick = {(e)=> switchFocus('drinks',e)}>{owner ? 'Your': user?.username} Drinks</span>
             {owner &&<span className ='bar-item' onClick = {(e)=> switchFocus('requests',e)}>{owner ? 'Your': user?.username} Friend Requests</span>}
+            {owner &&<span className ='bar-item' onClick = {(e)=> switchFocus('friends',e)}>{owner ? 'Your': user?.username} Friend Activity</span>}
         </div>
         <div className = 'focus-content'>
             {reviews && focus === 'user' && <UserReviews reviews = {reviews} />}
@@ -196,6 +200,7 @@ const ProfilePage = () => {
                 )
             })}
             {focus === 'requests' && <RequestPage />}
+            {focus === 'friends' && <FriendReviews userId = {userId}></FriendReviews>}
 
         </div>
         </div>}
