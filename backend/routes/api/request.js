@@ -69,9 +69,9 @@ router.post('/', asyncHandler(async (req,res) => {
 }))
 
 router.delete('/:requestId', asyncHandler (async (req,res)=> {
-        let {requestId} = req.body
+        let {requestId} = req.params
 
-        let request = Request.findByPk(requestId)
+        let request = await Request.findByPk(requestId)
 
         await request.destroy()
 
