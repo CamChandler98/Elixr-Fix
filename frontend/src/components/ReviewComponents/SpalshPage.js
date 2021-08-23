@@ -57,6 +57,7 @@ let NavSty = styled.div`
     gap:25px;
     width:300px;
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+    border-radius: 4px;
 
     a{
         text-decoration: none;
@@ -110,7 +111,6 @@ let SpalshPage = ({isLoaded}) => {
             <div className = 'right-side'>
                 <div className = 'link-container'>
                     <NavSty>
-                <span>Login here</span>
                 <NavLink to = '/login'>
                     <span>Login</span>
                 </NavLink>
@@ -118,6 +118,10 @@ let SpalshPage = ({isLoaded}) => {
                     <span>Signup</span>
                 </NavLink>
                 <a onClick = {demoLogin}>Demo</a>
+                <span>or</span>
+                <NavLink to = '/categories'>
+                <span>Take A Look Around </span>
+                </NavLink>
                 </NavSty>
                 </div>
             </div>

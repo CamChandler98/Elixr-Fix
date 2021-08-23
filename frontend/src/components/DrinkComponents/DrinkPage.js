@@ -92,6 +92,8 @@ const DrinkPage = () =>{
     let drink = useSelector(state => state.drinks[drinkId])
     let reviewsState = useSelector(state => state.reviews)
 
+    let user = useSelector(state => state.session.user)
+
     let allReviews = Object.values(reviewsState)
     let reviews = allReviews.filter( review => review.drinkId === + drinkId).reverse()
     return (
@@ -102,7 +104,7 @@ const DrinkPage = () =>{
         </div>
         <div className = 'drink-description'>
             <p>{drink?.description}</p>
-            <ReviewFormModal drinkId = {drinkId}/>
+           { user && <ReviewFormModal drinkId = {drinkId}/>}
         </div>
         <div className = 'reviews'>
         {reviews && <DrinkReviews reviews = {reviews} />}
