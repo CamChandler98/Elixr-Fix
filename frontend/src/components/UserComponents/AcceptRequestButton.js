@@ -1,4 +1,4 @@
-const { makeFriend } = require("../../store/friends")
+const { makeFriend, deleteOneReq} = require("../../store/friends")
 
 const AcceptRequestButton = ({request}) => {
     const dispatch = require(dispatch)
@@ -7,7 +7,13 @@ const AcceptRequestButton = ({request}) => {
 
     let handleClick = () => {
         dispatch(makeFriend({userOneId,userTwoId}))
+        dispatch(deleteOneReq(request.id))
     }
 
-    
+    return(
+        <>
+        <button onClick = {handleClick}>Accept</button>
+        </>
+    )
+
 }

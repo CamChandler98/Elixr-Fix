@@ -22,8 +22,8 @@ const addFriend = (record) =>({
     record
 })
 
-export const deleteReq = (id) => {
-    await csrfFetch(`/api/requests/${id}`, {
+export const deleteOneReq = (id) => async(dispatch) => {
+   let res = await csrfFetch(`/api/requests/${id}`, {
         method: 'delete',
         body: JSON.stringify({id})
     })
