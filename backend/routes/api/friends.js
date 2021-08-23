@@ -43,15 +43,13 @@ router.post('/', asyncHandler( async (req,res)=> {
 
      let newRecord = await Friend.create({userOneId,userTwoId})
 
-     let requests = await Request.findAll({
-        where:{
-            [Op.and]: {userOneId,userTwoId}
-        }
-    })
+    //  let requests = await Request.findAll({
+    //     where:{
+    //         [Op.and]: {userOneId,userTwoId}
+    //     }
+    // })
 
-    for( request in requests){
-        request.destroy()
-    }
+
 
      res.json(newRecord)
 }))

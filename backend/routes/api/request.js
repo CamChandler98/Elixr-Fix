@@ -31,7 +31,9 @@ router.get('/:userId', asyncHandler(async (req,res) => {
         where:{
             userTwoId: userId,
             pending: true
-        }
+        },
+        include:[{model: User, as: 'sender'}, {model: User, as: 'reciever'}
+    ]
     })
 
     res.json(usersRequests)
@@ -67,11 +69,13 @@ router.post('/', asyncHandler(async (req,res) => {
 }))
 
 router.delete('/:requestId', asyncHandler (async (req,res)=> {
-        let {requestId} = req.body
+        let {requestId} = req.params
 
-        let request = Request.findByPk(requestId)
+        let request = await Request.findByPk(requestId)
 
         await request.destroy()
+
+        res.json('destroy')
 
 }))
 

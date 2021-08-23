@@ -12,6 +12,7 @@ import EditDrinkFormModal from "../DrinkComponents/EditDrinkModal"
 import DeleteDrinkModal from "../DrinkComponents/DeleteDrinkModal"
 import RequestButton from "./RequestButton"
 import { csrfFetch } from "../../store/csrf"
+import RequestPage from "./RequestsPage"
 
 let ProfileSty = styled.div`
     .main-content{
@@ -92,6 +93,8 @@ const ProfilePage = () => {
             case 'drinks':
                 setFocus('drinks')
                 break;
+            case 'requests':
+                setFocus('requests')
             default:
                 break;
         }
@@ -166,15 +169,16 @@ const ProfilePage = () => {
         {user.username && <div className = 'main-content'>
         <div className = 'profile-header'>
             {user && <h2 className = 'heading'>{user.username}</h2>}
-            {reviews && <h3>Total Reviews: {reviews.length}
+            {reviews && <h3>Total Reviews: {reviews?.length}
             </h3>}
-            {drinks && <h3>Brewed {drinks.length} {drinks.length === 1   ? 'Potion': 'Potions'}</h3>}
+            {drinks && <h3>Brewed {drinks?.length} {drinks.length === 1   ? 'Potion': 'Potions'}</h3>}
             {/* {!owner && friends && <h3>Congrats on your friendship!</h3>} */}
             {!owner  && friends!== undefined && <RequestButton friends = {friends} userTwoId = {user.id} />}
         </div>
         <div className = 'switch-bar'>
             <span className ='bar-item focused' onClick = {(e)=> switchFocus('user',e)}>{owner ? 'Your': user?.username} Reviews</span>
             <span className ='bar-item' onClick = {(e)=> switchFocus('drinks',e)}>{owner ? 'Your': user?.username} Drinks</span>
+            {owner &&<span className ='bar-item' onClick = {(e)=> switchFocus('requests',e)}>{owner ? 'Your': user?.username} Friend Requests</span>}
         </div>
         <div className = 'focus-content'>
             {reviews && focus === 'user' && <UserReviews reviews = {reviews} />}
@@ -190,6 +194,7 @@ const ProfilePage = () => {
                     </div>
                 )
             })}
+            {focus === 'requests' && <RequestPage />}
 
         </div>
         </div>}

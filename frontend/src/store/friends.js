@@ -3,8 +3,12 @@ import { csrfFetch } from "./csrf"
 const GETREQ = `/friends/requests/get`
 const GETFRIENDS = '/friends/get'
 const ADDFRIEND = '/friends/add'
+const DELETEREQ = '/friends/requests/delete'
 // const SENDREQUEST = '/friends/requests/send'
-
+const deleteReq = (id) => ({
+    type: DELETEREQ,
+    id
+})
 const getReq = (requests) =>( {
     type: GETREQ,
     requests
@@ -18,7 +22,16 @@ const addFriend = (record) =>({
     record
 })
 
-
+export const deleteOneReq = (id) => async(dispatch) => {
+   let res = await csrfFetch(`/api/requests/${id}`, {
+        method: 'delete',
+        body: JSON.stringify({id})
+    })
+    if(res.ok){
+        dispatch(deleteReq(id))
+        return
+    }
+}
 export const getFriendRequests = (userId) => async (dispatch) =>{
     let res = await csrfFetch(`/api/requests/${userId}`)
 
@@ -95,6 +108,18 @@ const friendReducer = (state = {requests:{},friends:{}} , action) => {
                     [action.record.id] : action.record
                 }
             }
+        }
+        case DELETEREQ: {
+
+            let newState = {...state}
+            let newRequests = {...newState.requests}
+            let deleteTarget = newRequests[action.id]
+            if(deleteTarget){
+                delete newRequests[action.id]
+                newState.requests = {...newRequests}
+                return{...newState}
+            }
+            return state
         }
         default: {
             return state
