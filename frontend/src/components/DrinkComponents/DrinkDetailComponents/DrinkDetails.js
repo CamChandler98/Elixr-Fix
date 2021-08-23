@@ -2,7 +2,7 @@
 
 
 import styled from 'styled-components'
-import EditDrinkFormModal from '../EditDrinkModal'
+
 import DrinkDetailStyled from './DrinkOwnedDetails'
 const { useEffect } = require("react")
 const { useSelector, useDispatch } = require("react-redux")

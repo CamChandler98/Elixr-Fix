@@ -55,7 +55,7 @@ const RequestPage = () =>{
         if(userId){
             dispatch(getFriendRequests(userId))
         }
-    },[])
+    },[userId,dispatch])
 
     let requestState = useSelector(state => state.friends?.requests)
 

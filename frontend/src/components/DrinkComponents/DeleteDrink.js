@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import {  useHistory } from "react-router-dom"
+
 import styled from "styled-components"
 import { deleteDrink } from "../../store/drinks"
 
@@ -35,7 +35,7 @@ let DeleteDrinkSty = styled.div`
 `
 let DeleteDrink = ({drinkId , closeModal}) =>{
     let dispatch = useDispatch()
-    let history = useHistory()
+
     let handleSubmit = () =>{
         dispatch(deleteDrink(drinkId))
         closeModal()

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import {  useSelector } from "react-redux"
 import styled from "styled-components"
 import { csrfFetch } from "../../store/csrf"
 
@@ -37,7 +37,7 @@ const RequestButton = ({userTwoId, friends}) =>{
             }
             fetchData()
             return setPending(true)
-        },[userTwoId, userTwoId])
+        },[userTwoId, userOneId])
 
     const sendRequest = async () =>{
         let users = {userOneId,userTwoId}

@@ -95,6 +95,7 @@ const ProfilePage = () => {
                 break;
             case 'requests':
                 setFocus('requests')
+                break;
             default:
                 break;
         }
