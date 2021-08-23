@@ -37,6 +37,9 @@ function Navigation({ isLoaded }){
         <NavLink to = '/categories'>
             Categories
         </NavLink>
+        <NavLink to = '/about'>
+          About
+        </NavLink>
       </li>
     </ul>
     </div>

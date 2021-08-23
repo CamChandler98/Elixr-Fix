@@ -10,7 +10,7 @@ import * as sessionActions from './store/session';
 import * as drinkActions from './store/drinks'
 import * as reviewActions from './store/reviews'
 import * as profileActions from './store/profile'
-
+import * as friendActions from './store/friends'
 import { ModalProvider } from './context/Modal';
 
 
@@ -29,6 +29,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.drinkActions = drinkActions;
   window.reviewActions = reviewActions
   window.profileActions = profileActions
+  window.friendActions = friendActions
 }
 
 function Root() {

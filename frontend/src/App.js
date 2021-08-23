@@ -13,6 +13,7 @@ import LatestReviews from "./components/ReviewComponents/LatestReviews";
 import ReviewPage from "./components/ReviewComponents/ReviewPage";
 import SpalshPage from "./components/ReviewComponents/SpalshPage";
 import ProfilePage from "./components/UserComponents/ProfilePage";
+import AboutPage from "./components/AboutComponents/AboutPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,9 @@ function App() {
       </Route>
       <>
       <Navigation isLoaded={isLoaded} />
+      <Route path = '/about'>
+          <AboutPage></AboutPage>
+      </Route>
       <Route exact path ='/thecoven'>
         <LatestReviews/>
       </Route>

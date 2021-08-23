@@ -52,7 +52,7 @@ export const addDrink = (drink) => async (dispatch) => {
     if(res.ok){
         let testRes = await res.json()
         let drink = testRes.drink
-        console.log(drink)
+
         dispatch(addOneDrink(drink))
         return
     }else{
@@ -104,9 +104,7 @@ const drinkReducer = (state = {}, action) => {
             }
         }
         case ADD_DRINK:{
-            console.log('action',action)
-            console.log('action drink', action.drink)
-            console.log('action drink id', action.drink.id)
+        
             if(!state[action.drink.id]){
                 return{
                     ...state,
