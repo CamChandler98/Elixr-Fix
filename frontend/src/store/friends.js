@@ -112,9 +112,11 @@ const friendReducer = (state = {requests:{},friends:{}} , action) => {
         case DELETEREQ: {
 
             let newState = {...state}
-            let deleteTarget = newState.requests[action.id]
+            let newRequests = {...newState.requests}
+            let deleteTarget = newRequests[action.id]
             if(deleteTarget){
-                delete newState.requests[action.id]
+                delete newRequests[action.id]
+                newState.requests = {...newRequests}
                 return{...newState}
             }
             return state

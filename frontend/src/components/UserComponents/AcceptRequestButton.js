@@ -1,7 +1,9 @@
+import { useDispatch } from "react-redux"
+
 const { makeFriend, deleteOneReq} = require("../../store/friends")
 
 const AcceptRequestButton = ({request}) => {
-    const dispatch = require(dispatch)
+    const dispatch = useDispatch()
     let userOneId = request.sender.id
     let userTwoId = request.reciever.id
 
@@ -17,3 +19,5 @@ const AcceptRequestButton = ({request}) => {
     )
 
 }
+
+export default AcceptRequestButton
