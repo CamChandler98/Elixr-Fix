@@ -9,8 +9,7 @@ module.exports = {
         {userOneId:1, userTwoId:5},
         {userOneId:1, userTwoId:6},
         {userOneId:10, userTwoId:1},
-        {userOneId:11, userTwoId:1},
-        {userOneId:3, userTwoId:1},], {});
+        {userOneId:11, userTwoId:1},], {});
 
   },
 

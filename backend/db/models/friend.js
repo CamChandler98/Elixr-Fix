@@ -7,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Friend.associate = function(models) {
     // associations can be defined here
-    Friend.belongsTo(models.User, {foreignKey: 'userOneId'})
-    Friend.belongsTo(models.User, {foreignKey: 'userTwoId'})
+    Friend.belongsTo(models.User, {as: 'one',foreignKey: 'userOneId'})
+    Friend.belongsTo(models.User, { as: 'two',foreignKey: 'userTwoId' , })
   };
 
   Friend.getUserFriends = async function(id){
@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
                 {userOneId : id},
                 {userTwoId: id}
               ]
-          }
+          },
+          include:[{model: User, as: 'one'}, {model: User, as: 'two'}]
        })
 
        return friends

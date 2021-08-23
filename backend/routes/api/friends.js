@@ -23,7 +23,16 @@ router.post('/check', asyncHandler (async (req,res) => {
 }))
 router.get('/:userId', asyncHandler( async (req,res) => {
     let {userId} = req.params
-    let friends = await Friend.getUserFriends(userId)
+    let friends = await Friend.findAll({
+        where: {
+            [Op.or]: [
+              {userOneId : userId},
+              {userTwoId: userId}
+            ]
+        },
+        include:[{model: User, as: 'one'}, {model: User, as: 'two'}]
+     })
+
     res.json(friends)
 
 }))
