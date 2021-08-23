@@ -2,9 +2,28 @@ const express = require('express')
 const asyncHandler = require('express-async-handler');
 const {Drink, Review, User, Category, Request, Friend} = require('../../db/models')
 const { Op } = require('sequelize');
+const { request } = require('express');
 
 
 const router = express.Router();
+
+router.post('/check' , asyncHandler(async (req,res) => {
+    let {userOneId, userTwoId} = req.body
+
+    let requestCheck = await Request.findAll({
+        where:{
+            [Op.and]: {userOneId,userTwoId}
+        }
+    })
+
+
+    if(requestCheck.length > 0){
+        res.json(true)
+    }else{
+        res.json(false)
+    }
+
+}))
 
 router.get('/:userId', asyncHandler(async (req,res) => {
     let {userId} = req.params

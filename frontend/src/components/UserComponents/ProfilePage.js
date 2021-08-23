@@ -10,6 +10,7 @@ import styled from "styled-components"
 import DrinkFormModal from "../DrinkComponents/AddDrinkFormModal"
 import EditDrinkFormModal from "../DrinkComponents/EditDrinkModal"
 import DeleteDrinkModal from "../DrinkComponents/DeleteDrinkModal"
+import RequestButton from "./RequestButton"
 
 let ProfileSty = styled.div`
     .main-content{
@@ -143,6 +144,7 @@ const ProfilePage = () => {
             {reviews && <h3>Total Reviews: {reviews.length}
             </h3>}
             {drinks && <h3>Brewed {drinks.length} {drinks.length === 1   ? 'Potion': 'Potions'}</h3>}
+            {!owner  && <RequestButton userTwoId = {user.id} />}
         </div>
         <div className = 'switch-bar'>
             <span className ='bar-item focused' onClick = {(e)=> switchFocus('user',e)}>{owner ? 'Your': user?.username} Reviews</span>
