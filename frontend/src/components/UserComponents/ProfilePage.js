@@ -166,9 +166,9 @@ const ProfilePage = () => {
         {user.username && <div className = 'main-content'>
         <div className = 'profile-header'>
             {user && <h2 className = 'heading'>{user.username}</h2>}
-            {reviews && <h3>Total Reviews: {reviews.length}
+            {reviews && <h3>Total Reviews: {reviews?.length}
             </h3>}
-            {drinks && <h3>Brewed {drinks.length} {drinks.length === 1   ? 'Potion': 'Potions'}</h3>}
+            {drinks && <h3>Brewed {drinks?.length} {drinks.length === 1   ? 'Potion': 'Potions'}</h3>}
             {/* {!owner && friends && <h3>Congrats on your friendship!</h3>} */}
             {!owner  && friends!== undefined && <RequestButton friends = {friends} userTwoId = {user.id} />}
         </div>
