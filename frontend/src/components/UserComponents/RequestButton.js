@@ -36,7 +36,7 @@ const RequestButton = ({userTwoId, friends}) =>{
                 }
             }
             fetchData()
-            return setPending(null)
+            return (setPending(null))
         },[userTwoId, userOneId])
 
     const sendRequest = async () =>{
@@ -57,7 +57,7 @@ const RequestButton = ({userTwoId, friends}) =>{
     return (
         <RequestButtonSty>
         <>
-        {userOneId&&<button onClick ={pending === false ? sendRequest: null}>{pending === true? 'Request Pending': friends === true ? 'Congrats! Friends!': 'Send Request'}</button>}
+        {userOneId&& friends !== undefined && <button onClick ={pending === false ? sendRequest: null}>{pending === true? 'Request Pending': friends === true ? 'Congrats! Friends!': 'Send Request'}</button>}
         </>
         </RequestButtonSty>
     )

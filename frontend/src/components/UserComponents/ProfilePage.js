@@ -99,6 +99,7 @@ const ProfilePage = () => {
                 break;
             case 'friends':
                 setFocus('friends')
+                break
             default:
                 break;
         }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { goGetFriends } from "../../store/friends"
-import { getAllReviews, getUserReviews } from "../../store/reviews"
+import { getAllReviews} from "../../store/reviews"
 import ReviewDetails from "./ReviewDetails"
 
 const FriendReviews = ({userId}) => {
