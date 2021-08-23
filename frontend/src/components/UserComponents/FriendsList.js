@@ -1,3 +1,4 @@
+import { set } from "js-cookie"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
@@ -43,6 +44,9 @@ const FriendsList = () => {
         if(userId){
             dispatch(goGetFriends(userId))
         }
+        return (
+            friendState = null
+        )
     },[userId,dispatch])
     let friendState = useSelector(state => state.friends?.friends)
     let friends = Object.values(friendState)
