@@ -5,12 +5,14 @@ import { editDrink } from "../../store/drinks"
 import {thumbImages} from "../DrinkComponents/image-handler"
 
 let EditDrinkSty = styled.div`
+color: rgb(49 45 45 / 69%);
     form{
         display:flex;
         flex-direction:column;
         gap:10px;
-        padding: 4%;
+        padding: 2%;
         margin:0;
+        align-items:center;
     }
     img{
         width:50px;
@@ -39,6 +41,31 @@ let EditDrinkSty = styled.div`
           flex-direction: column;
           align-items: center;
           font-weight: bold;
+      }
+      button{
+        width: 50%;
+        height: 30px;
+        border-radius: 8px;
+        border: 0px;
+        background-color:  rgb(198, 135, 231);
+        color: #fff;
+        font-weight: 500;
+      }
+
+      [type=text]{
+          width: 75%;
+          text-align:center;
+      }
+      [type=text]:focus{
+          outline-color:  rgb(198, 135, 231)
+      }
+      textarea{
+          width:75%;
+          resize:none;
+      }
+      textarea:focus{
+        outline-color:  rgb(198, 135, 231);
+
       }
 
 `

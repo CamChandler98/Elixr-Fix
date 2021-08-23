@@ -137,7 +137,7 @@ const ProfilePage = () => {
 
     return (
         <ProfileSty>
-        <div className = 'main-content'>
+        {user.username && <div className = 'main-content'>
         <div className = 'profile-header'>
             {user && <h2 className = 'heading'>{user.username}</h2>}
             {reviews && <h3>Total Reviews: {reviews.length}
@@ -164,7 +164,7 @@ const ProfilePage = () => {
             })}
 
         </div>
-        </div>
+        </div>}
         </ProfileSty>
     )
 }

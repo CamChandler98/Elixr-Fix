@@ -9,7 +9,7 @@ import cameraButton from '../DrinkComponents/images/thumbnail/photo-button.svg'
 
 const AddReviewSty = styled.div`
 h2{
-    color: rgb(49 45 45 / 69%)
+    color: rgb(49 45 45 / 80%)
 }
 form{
     display: flex;
