@@ -130,10 +130,12 @@ const ProfilePage = () => {
 
 
     useEffect(()=> {
-
+            if(!userId){
+                return
+            }
             async function fetchData(){
             let users = {userOneId: userId,userTwoId: user.id}
-        
+
             let res = await csrfFetch('/api/friends/check',{
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
@@ -147,7 +149,7 @@ const ProfilePage = () => {
                 setFriends(false)
             }
         }
-        if(userId !== undefined && user.id !== undefined){
+        if(userId && user.id){
         fetchData()}
 
         return(setFriends(false))
