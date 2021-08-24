@@ -57,7 +57,7 @@ const RequestButton = ({userTwoId, friends}) =>{
     return (
         <RequestButtonSty>
         <>
-        {userOneId && userTwoId && friends !== undefined && <button onClick ={pending === false ? sendRequest: null}>{pending === true? 'Request Pending': friends === true ? 'Congrats! Friends!': 'Send Request'}</button>}
+        {userOneId && userTwoId && <button onClick ={pending === false && !friends ? sendRequest: null}>{pending === true? 'Request Pending': friends === true ? 'Congrats! Friends!': 'Send Request'}</button>}
         </>
         </RequestButtonSty>
     )
