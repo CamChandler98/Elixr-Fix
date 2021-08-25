@@ -1,6 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
+const {singlePublicFileUpload , singleMulterUpload} = require('../../awsS3')
 const bcrypt = require('bcryptjs');
 
 const { Op } = require('sequelize');
@@ -62,11 +63,22 @@ router.get('/:username', asyncHandler( async (req,res) => {
 }))
 router.post(
     '/',
+    singleMulterUpload("image"),
     validateSignup,
     asyncHandler(async (req, res) => {
+      console.log(req.body)
       const { email, password, username } = req.body;
-      const private = true
-      const user = await User.signup({ private,email, username, password });
+
+      let profilePictureUrl
+      try{
+         profilePictureUrl = await singlePublicFileUpload(req.file)
+      }catch(e){
+          console.log(e)
+          profilePictureUrl = null //todo add default profile pics
+      }
+
+      const private = false
+      const user = await User.signup({ private,email, username, password, profilePictureUrl});
 
       await setTokenCookie(res, user);
 
