@@ -75,8 +75,8 @@ module.exports = (sequelize, DataTypes) => {
 
   };
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
-    const { id, username, email,  } = this; // context will be the User instance
-    return { id, username, email };
+    const { id, username, email, profilePictureUrl  } = this; // context will be the User instance
+    return { id, username, email, profilePictureUrl };
   };
 
   User.prototype.validatePassword = function (password) {
@@ -102,14 +102,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
 
-  User.signup = async function ({ username, email, password, private }) {
+  User.signup = async function ({ username, email, password, private, profilePictureUrl }) {
 
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       username,
       email,
       hashedPassword,
-      private
+      private,
+      profilePictureUrl
     });
     return await User.scope('currentUser').findByPk(user.id);
   };

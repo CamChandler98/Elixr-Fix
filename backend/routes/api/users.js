@@ -64,20 +64,20 @@ router.get('/:username', asyncHandler( async (req,res) => {
 router.post(
     '/',
     validateSignup,
-    singleMulterUpload("image",
+    singleMulterUpload("image"),
     asyncHandler(async (req, res) => {
       const { email, password, username } = req.body;
 
-      let imageUrl
+      let profilePictureUrl
       try{
-         imageUrl = await singlePublicFileUpload(req.file)
+         profilePictureUrl = await singlePublicFileUpload(req.file)
       }catch(e){
           console.log(e)
-          imageUrl = null //todo add default profile pics
+          profilePictureUrl = null //todo add default profile pics
       }
 
       const private = false
-      const user = await User.signup({ private,email, username, password });
+      const user = await User.signup({ private,email, username, password, profilePictureUrl});
 
       await setTokenCookie(res, user);
 
