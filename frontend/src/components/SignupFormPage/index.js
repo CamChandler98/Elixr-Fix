@@ -12,6 +12,7 @@ function SignupFormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [image, setImage] = useState(null)
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -28,6 +29,14 @@ function SignupFormPage() {
     }else{
     return setErrors(['Confirm Password field must be the same as the Password field']);}
   };
+  const updateFile = (e) => {
+    const file = e.target.files[0];
+    if (file){
+        setImage(file);
+        // let tempUrl = URL.createObjectURL(e.target.files[0])
+        // setTempImgUrl(tempUrl)
+    }
+  };
 
   return (
     <main>
@@ -35,6 +44,10 @@ function SignupFormPage() {
     <form onSubmit={handleSubmit} className = 'form-container'>
       <div>
       <h2>Sign Up</h2>
+      <label htmlFor = 'profile-pic' className = 'form-group'>
+        <input id = 'profile-pic' type = 'file'
+          onChange = {updateFile} />
+      </label>
       <label className = 'form-group'>
         Email
         <input
