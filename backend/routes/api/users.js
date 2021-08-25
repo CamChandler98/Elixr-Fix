@@ -63,9 +63,10 @@ router.get('/:username', asyncHandler( async (req,res) => {
 }))
 router.post(
     '/',
-    validateSignup,
     singleMulterUpload("image"),
+    validateSignup,
     asyncHandler(async (req, res) => {
+      console.log(req.body)
       const { email, password, username } = req.body;
 
       let profilePictureUrl
