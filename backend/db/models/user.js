@@ -29,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60]
       },
     },
+    profilePictureUrl:{
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     private: {
       type: DataTypes.BOOLEAN,
       allowNull:false
