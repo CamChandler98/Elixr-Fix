@@ -1,9 +1,39 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
+import styled from "styled-components";
 import * as sessionActions from "../../store/session";
-
+import profilePlaceholder from '../DrinkComponents/images/thumbnail/upload-profile-pic.svg'
+import removeIcon from '../DrinkComponents/images/thumbnail/remove-icon.svg'
 import '../LoginFormPage/login.css'
+
+const ImageSty = styled.div`
+margin: 0 auto;
+img{
+  margin:2%;
+  width:90px;
+  max-height: 90px;
+  object-fit: cover;
+}
+
+input[type="file"]{
+  display: none;
+  margin:0;
+}
+
+.profile-pic{
+  border-radius: 50%;
+  margin-left: 25px
+
+}
+.remove{
+  position: relative;
+  height: 30px;
+  width:30px;
+  margin:0;
+  bottom:25px;
+  right:-70px;
+`
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -13,6 +43,7 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [image, setImage] = useState(null)
+  const [tempImgUrl, setTempImgUrl] = useState('')
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -30,13 +61,20 @@ function SignupFormPage() {
     return setErrors(['Confirm Password field must be the same as the Password field']);}
   };
   const updateFile = (e) => {
+    e.preventDefault()
     const file = e.target.files[0];
     if (file){
         setImage(file);
-        // let tempUrl = URL.createObjectURL(e.target.files[0])
-        // setTempImgUrl(tempUrl)
+        let tempUrl = URL.createObjectURL(e.target.files[0])
+        setTempImgUrl(tempUrl)
     }
   };
+  const removeImage = (e) => {
+    e.preventDefault()
+   URL.revokeObjectURL(tempImgUrl)
+   setImage(null)
+   setTempImgUrl('')
+}
 
   return (
     <main>
@@ -45,8 +83,22 @@ function SignupFormPage() {
       <div>
       <h2>Sign Up</h2>
       <label htmlFor = 'profile-pic' className = 'form-group'>
+        <ImageSty>
         <input id = 'profile-pic' type = 'file'
-          onChange = {updateFile} />
+          onChange = {updateFile}/>
+          <img
+            src = {tempImgUrl ? tempImgUrl: profilePlaceholder}
+            className = {tempImgUrl ? 'profile-pic': 'placeholder'}
+            alt = 'submit-photo'
+          />
+          {
+            tempImgUrl && <img src = {removeIcon} alt = 'remove profile'
+              onClick ={ removeImage}
+              className = 'remove'
+            />
+          }
+          </ImageSty>
+
       </label>
       <label className = 'form-group'>
         Email
