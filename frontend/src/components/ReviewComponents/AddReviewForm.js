@@ -172,10 +172,18 @@ const AddReviewForm = ({drinkId , closeModal}) =>{
                     </textarea>
                      <label htmlFor ='add-photo'>
                     <input id ='add-photo' type="file" onChange={updateFile} />
-                       <img src = {tempImgUrl ? tempImgUrl: cameraButton} className = {tempImgUrl? null: 'camera-button'} onClick ={tempImgUrl ? (e)=> {e.preventDefault()} : null} alt = 'submit-phot'/>
-                       {tempImgUrl && <button className ='remove' onClick ={ e => {
+                       <img src = {tempImgUrl ? tempImgUrl: cameraButton}
+                       className = {tempImgUrl? null: 'camera-button'}
+                       onClick ={tempImgUrl ? (e)=> {e.preventDefault()} : null}
+                       alt = 'submit-photo'/>
+
+                       {tempImgUrl &&
+                       <button className ='remove'
+                       onClick ={ e => {
                            removeImage(e)
-                       }}>remove</button>}
+                       }}>
+                           remove
+                        </button>}
                     </label>
                     </div>
                 <div className ='rating-container'>

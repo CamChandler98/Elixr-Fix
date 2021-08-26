@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import ProfileMenu from "./ProfileMenu";
 import faceButton from '../DrinkComponents/images/thumbnail/profile-icon.svg'
@@ -9,7 +9,8 @@ import { useHistory } from "react-router-dom";
 const ProfileButtonSty = styled.div`
   img{
     height: 60px;
-    margin-top: 10px
+    margin-top: 10px;
+    border-radius: 50%;
   }
   img:hover{
     cursor: pointer;
@@ -37,6 +38,8 @@ let ProfileButton = () => {
         return () => document.removeEventListener("click", closeMenu);
       }, [showMenu]);
 
+      const profilePictureUrl = useSelector(state => state?.session.user.profilePictureUrl)
+      console.log('url',profilePictureUrl)
     const logout = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout());
@@ -46,7 +49,7 @@ let ProfileButton = () => {
     return(
       <ProfileButtonSty>
         <>
-        <img src ={faceButton} alt = 'profile' onClick = {openMenu}/>
+        {profilePictureUrl && <img src ={profilePictureUrl} alt = 'profile' onClick = {openMenu}/>}
         {showMenu && <ProfileMenu logout = {logout} />}
         </>
         </ProfileButtonSty>
