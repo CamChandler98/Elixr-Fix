@@ -10,21 +10,21 @@ module.exports = {
         username: 'Nimue',
         hashedPassword: bcrypt.hashSync('password'),
         private: false,
-        profilePictureUrl: 'elixrawsbucket.s3.amazonaws.com/icons/pyramid.png'
+        profilePictureUrl: 'https://elixrawsbucket.s3.amazonaws.com/icons/pyramid.png'
       },
       {
         email: faker.internet.email(),
         username: 'Agatha',
         hashedPassword: bcrypt.hashSync('password'),
         private: false,
-        profilePictureUrl: 'elixrawsbucket.s3.amazonaws.com/icons/bunny.png'
+        profilePictureUrl: 'https://elixrawsbucket.s3.amazonaws.com/icons/pyramid.png'
       },
       {
         email: faker.internet.email(),
         username: 'batildabladewitch',
         hashedPassword: bcrypt.hashSync('password'),
         private: false,
-        profilePictureUrl: 'elixrawsbucket.s3.amazonaws.com/icons/square.png'
+        profilePictureUrl: 'https://elixrawsbucket.s3.amazonaws.com/icons/pyramid.png'
       },
     ], {});
   },
