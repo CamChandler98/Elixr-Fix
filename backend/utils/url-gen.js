@@ -2,7 +2,7 @@
 const { getPics } = require("../awsS3");
 const genPicUrl = async (prefix) =>{
     console.log('getting purls')
-    let root = 'elixrawsbucket.s3.amazonaws.com/'
+    let root = `https://elixrawsbucket.s3.amazonaws.com/`
     let data = await getPics(prefix)
     console.log('got data')
     let urlArr = []

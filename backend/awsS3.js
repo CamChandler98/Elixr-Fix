@@ -76,7 +76,6 @@ const retrievePrivateFile = (key) => {
 };
 
 const getPics = async (prefix) =>{
-    console.lo
     let params = {
         Bucket: NAME_OF_BUCKET,
         Prefix: prefix
