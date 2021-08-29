@@ -2,11 +2,16 @@
 const faker = require('faker')
 const bcrypt = require('bcryptjs');
 const {User,Drink} = require('../db/models');
+const { genPicUrl } = require('./url-gen');
 
 
- const genUser = (genNum) => {
+
+ const genUser = async (genNum) => {
+     console.log('here')
     faker.seed(200)
     let usersArr = []
+    let profileUrls = await genPicUrl('icons/')
+    console.log('urls',profileUrls)
     for(let i = 0; i < genNum; i++ ){
         let username = i%4 !== 0 ? faker.name.findName(): faker.internet.userName()
         let email = faker.internet.email(username)
@@ -15,11 +20,14 @@ const {User,Drink} = require('../db/models');
 
         let private = `${Math.round(Math.random())}`
 
+        let profilePictureUrl = profileUrls[Math.floor(Math.random()*profileUrls.length)]
+
         usersArr.push({
             username,
             email,
             hashedPassword,
             private,
+            profilePictureUrl
         })
     }
     return usersArr
@@ -88,7 +96,7 @@ const assignRandomReview = function (obj) {
 // let reviewImages = ['https://elixrawsbucket.s3.amazonaws.com/review-images/Galaxy-Lemonade-Final3.jpg','https://elixrawsbucket.s3.amazonaws.com/review-images/Galaxy-Magic-Moscow-Mule-A-Vodka-Cocktail-9-735x488.jpg','https://elixrawsbucket.s3.amazonaws.com/review-images/Magical-Color-Changing-Cocktails-The-Flavor-Bender-10.jpg','https://elixrawsbucket.s3.amazonaws.com/review-images/Unicorn-Blood-Cocktail.jpg'] ;
 
 const genReviews = async () =>{
-    let reviewImages = ['https://elixrawsbucket.s3.amazonaws.com/review-images/Galaxy-Lemonade-Final3.jpg','https://elixrawsbucket.s3.amazonaws.com/review-images/Galaxy-Magic-Moscow-Mule-A-Vodka-Cocktail-9-735x488.jpg','https://elixrawsbucket.s3.amazonaws.com/review-images/Magical-Color-Changing-Cocktails-The-Flavor-Bender-10.jpg','https://elixrawsbucket.s3.amazonaws.com/review-images/Unicorn-Blood-Cocktail.jpg'] ;
+    let reviewImages = await genPicUrl('potion/')
 
     let reviewArr = []
 
@@ -116,5 +124,6 @@ const genReviews = async () =>{
     return reviewArr
 }
 
-
+let test = genUser()
+console.log(test, 'heeeerer')
 module.exports = {genUser,genPotions, genReviews}
