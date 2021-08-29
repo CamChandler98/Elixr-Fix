@@ -12,7 +12,7 @@ margin: 0 auto;
 img{
   margin:2%;
   width:90px;
-  max-height: 90px;
+  height: 90px;
   object-fit: cover;
 }
 
@@ -23,7 +23,8 @@ input[type="file"]{
 
 .profile-pic{
   border-radius: 50%;
-  margin-left: 25px
+  margin-left: 25px;
+  object-fit: cover;
 
 }
 .remove{
