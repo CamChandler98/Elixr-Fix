@@ -12,13 +12,12 @@ import DeleteReviewModal from "./DeleteReviewModal"
 
 
 const ReviewPageSty = styled.div`
-    .test{
         width:100%;
         background-color: #fbf6f0;
         height: 100vh;
         margin:0;
         position:fixed;
-    }
+
     .full-review{
         display: flex;
         margin: 5% 20%;

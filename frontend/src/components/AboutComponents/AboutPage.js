@@ -27,7 +27,7 @@ const AboutSty = styled.div`
         text-decoration: none;
     }
     a:hover{
-      color:  rgb(117 66 144)
+      color:  rgb(117 66 144);
     }
 `
 const AboutPage = () =>{

@@ -13,7 +13,6 @@ const ReviewDetailSty = styled.div`
     flex-direction: column;
     padding: 50px 0px;
 
-
     .review-image{
         display:flex;
         justify-content:center;
@@ -54,7 +53,7 @@ const ReviewDetailSty = styled.div`
         max-height: 50px;
         object-fit: cover;
         border-radius:50%;
-        box-shadow:  1px 4px 2px 1px rgb(195 191 191 / 61%)
+        box-shadow:  1px 4px 2px 1px rgb(195 191 191 / 61%);
       }
 `
 const ReviewDetails = ({reviewId}) => {

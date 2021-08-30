@@ -48,10 +48,8 @@ let ProfileButton = () => {
     }
     return(
       <ProfileButtonSty>
-        <>
         {profilePictureUrl && <img src ={profilePictureUrl} alt = 'profile' onClick = {openMenu}/>}
         {showMenu && <ProfileMenu logout = {logout} />}
-        </>
         </ProfileButtonSty>
     )
 }
