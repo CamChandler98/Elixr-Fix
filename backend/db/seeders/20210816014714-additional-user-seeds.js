@@ -2,8 +2,9 @@
 
 const { genUser } = require("../../utils/seed-generation");
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-   return queryInterface.bulkInsert('Users', genUser(25), {});
+    up: async (queryInterface, Sequelize) => {
+      let users = await genUser(25)
+   return queryInterface.bulkInsert('Users', users, {});
 
   },
 

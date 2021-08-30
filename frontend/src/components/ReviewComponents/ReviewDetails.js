@@ -14,10 +14,11 @@ const ReviewDetailSty = styled.div`
         padding: 50px 0px;
     }
 
+
     .review-image{
         display:flex;
         justify-content:center;
-        box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+        box-shadow:  1px 4px 2px 1px rgb(195 191 191 / 61%);
         padding: 1%
     }
     .user-pic{
@@ -48,6 +49,14 @@ const ReviewDetailSty = styled.div`
     .detail-link{
         margin-top: 15px;
     }
+    .profile-pic{
+        margin-right: 1.7%;
+        width:50px;
+        max-height: 50px;
+        object-fit: cover;
+        border-radius:50%;
+        box-shadow:  1px 4px 2px 1px rgb(195 191 191 / 61%)
+      }
 `
 const ReviewDetails = ({reviewId}) => {
     let dispatch = useDispatch()
@@ -65,6 +74,7 @@ const ReviewDetails = ({reviewId}) => {
                     <ReviewDetailSty>
                        <div className = 'review-details'>
                        <span className = 'review header'>
+                           <img className='profile-pic' src = {review.User.profilePictureUrl}/>
                            <NavLink to = {`/users/${review?.User?.username}`}>{review?.User?.username}</NavLink> is drinking <NavLink to = {`/drinks/${review?.drinkId}`}>{review?.Drink?.name}</NavLink> brewed by <NavLink to ={`/users/${review?.Drink?.User?.username}`}>{review?.Drink?.User?.username}</NavLink> </span>
 
                        <div className = 'review-details-rating'>

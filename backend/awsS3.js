@@ -75,6 +75,16 @@ const retrievePrivateFile = (key) => {
   return fileUrl || key;
 };
 
+const getPics = async (prefix) =>{
+    let params = {
+        Bucket: NAME_OF_BUCKET,
+        Prefix: prefix
+    }
+    let res= await s3.listObjectsV2(params).promise()
+    let data = res.Contents
+    return data
+}
+
 // --------------------------- Storage ------------------------
 
 const storage = multer.memoryStorage({
@@ -97,4 +107,5 @@ module.exports = {
   retrievePrivateFile,
   singleMulterUpload,
   multipleMulterUpload,
+  getPics
 };

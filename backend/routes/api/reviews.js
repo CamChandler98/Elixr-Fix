@@ -1,7 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 const {Review, User, Drink} = require('../../db/models')
-const {singlePublicFileUpload , singleMulterUpload} = require('../../awsS3')
+const {singlePublicFileUpload , singleMulterUpload, getProfilePics} = require('../../awsS3')
 
 const router = express.Router();
 
@@ -10,7 +10,7 @@ router.get('/' , asyncHandler( async (req,res) => {
           order:[['updatedAt', 'ASC']],
           include: [
             {model: Drink, attributes: ['name'], include:[User]} ,
-            {model: User, attributes: ['username']},
+            {model: User, attributes: ['username', 'profilePictureUrl']},
 
         ],limit: 90
     })
@@ -25,7 +25,7 @@ router.get('/drinks/:drinkId', asyncHandler(async (req,res)=>{
           order:[['updatedAt', 'ASC']],
           include: [
             {model: Drink, attributes: ['name'], include:[User]}  ,
-            {model: User, attributes: ['username']} ,
+            {model: User, attributes: ['username', 'profilePictureUrl']} ,
         ]
     })
     res.json(reviews)
@@ -41,7 +41,7 @@ router.get('/users/:userId', asyncHandler(async (req,res)=>{
           order:[['updatedAt','ASC']],
           include: [
             {model: Drink, attributes: ['name'], include:[User]}  ,
-            {model: User, attributes: ['username']} ,
+            {model: User, attributes: ['username', 'profilePictureUrl']} ,
         ]
     })
     res.json(reviews)
@@ -68,7 +68,7 @@ router.post('/' , singleMulterUpload("image"),asyncHandler(async (req,res)=> {
           },
           include: [
             {model: Drink, attributes: ['name'], include:[User]}  ,
-            {model: User, attributes: ['username']} ,
+            {model: User, attributes: ['username', 'profilePictureUrl']} ,
         ]
     })
 
@@ -122,7 +122,7 @@ router.get('/:reviewId' ,asyncHandler( async (req,res) => {
           },
           include: [
             {model: Drink, attributes: ['name'], include:[User]} ,
-            {model: User, attributes: ['username']} ,
+            {model: User, attributes: ['username', 'profilePictureUrl']} ,
         ]
     })
 

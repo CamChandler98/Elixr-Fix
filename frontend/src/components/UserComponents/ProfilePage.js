@@ -34,14 +34,28 @@ let ProfileSty = styled.div`
     }
 
     .profile-header{
-        background: rgb(143,69,182);
-        background: linear-gradient(180deg, rgba(143,69,182,1) 0%, rgba(169,140,209,1) 100%);
         color: #fff;
         padding: 3% 7%;
         display:flex;
         flex-direction: column;
         gap: -50px;
         margin-bottom: 15px
+    }
+    .image-and-header{
+        padding: 0% 7%;
+        display:flex;
+        background: rgb(143,69,182);
+        align-items:center;
+        background: linear-gradient(180deg, rgba(143,69,182,1) 0%, rgba(169,140,209,1) 100%);
+    }
+    .image-and-header > img{
+        margin-right: 1.7%;
+        width:90px;
+        max-height: 90px;
+        object-fit: cover;
+        border-radius:50%;
+        background-color: white;
+        border: 2px solid white
     }
     .focus-content{
         display: flex;
@@ -174,13 +188,15 @@ const ProfilePage = () => {
     return (
         <ProfileSty>
         {user.username && <div className = 'main-content'>
+        <div className = 'image-and-header'>
+            <img src = {user.profilePictureUrl}/>
         <div className = 'profile-header'>
             {user && <h2 className = 'heading'>{user.username}</h2>}
             {reviews && <h3>Total Reviews: {reviews?.length}
             </h3>}
             {drinks && <h3>Brewed {drinks?.length} {drinks.length === 1   ? 'Potion': 'Potions'}</h3>}
-            {/* {!owner && friends && <h3>Congrats on your friendship!</h3>} */}
             {!owner  && friends!== undefined && <RequestButton friends = {friends} userTwoId = {user.id} />}
+        </div>
         </div>
         <div className = 'switch-bar'>
             <span className ='bar-item focused' onClick = {(e)=> switchFocus('user',e)}>{owner ? 'Your': user?.username} Reviews</span>
