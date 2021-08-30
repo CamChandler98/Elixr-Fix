@@ -115,7 +115,6 @@ const ReviewPage = () =>{
     return(
 
         <ReviewPageSty>
-        <div className = 'test'>
             {review &&
                 <div className = 'full-review'>
                 <div className = 'review-content'>
@@ -138,7 +137,6 @@ const ReviewPage = () =>{
                 </div>
                 </div>
             }
-        </div>
         </ReviewPageSty>
     )
 
