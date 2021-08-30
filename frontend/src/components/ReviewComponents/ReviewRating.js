@@ -36,7 +36,6 @@ const ReviewRating = ({rating}) =>{
                         )
                     }
                 })}
-
         </RatingSty>
     )
 }
