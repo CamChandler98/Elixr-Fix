@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/CamChandler98/Elixr/issues"
   },
-  "homepage": "https://github.com/CamChandler98/Elixr#readme"
+  "homepage": "https://github.com/CamChandler98/Elixr#readme",
+  "dependencies": {
+    "styled-components": "^5.3.1"
+  }
 }
