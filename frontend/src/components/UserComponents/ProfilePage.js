@@ -54,7 +54,7 @@ let ProfileSty = styled.div`
         max-height: 90px;
         object-fit: cover;
         border-radius:50%;
-
+        background-color: white;
         border: 2px solid white
     }
     .focus-content{
