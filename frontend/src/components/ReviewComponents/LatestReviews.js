@@ -27,7 +27,7 @@ const LatestReviews = () => {
     let allReviews = Object.values(reviewsState).reverse()
     // console.log(allReviews)
         return(
-            <ReviewSty>
+            <ReviewSty> 
             <div className = 'reviews'>
                 <h1>Latest Reviews</h1>
                 {allReviews && allReviews.map(review => {
