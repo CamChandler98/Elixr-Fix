@@ -68,9 +68,9 @@ const ReviewDetails = ({reviewId}) => {
 
     return(
 
-       <>
-            {review &&
-                       <ReviewDetailSty>
+
+        <ReviewDetailSty>
+            {review &&<>
                        <span className = 'review header'>
                            <img className='profile-pic' src = {review.User.profilePictureUrl}/>
                            <NavLink to = {`/users/${review?.User?.username}`}>{review?.User?.username}</NavLink> is drinking <NavLink to = {`/drinks/${review?.drinkId}`}>{review?.Drink?.name}</NavLink> brewed by <NavLink to ={`/users/${review?.Drink?.User?.username}`}>{review?.Drink?.User?.username}</NavLink> </span>
@@ -85,9 +85,9 @@ const ReviewDetails = ({reviewId}) => {
                        <div className = 'detail-link'>
                            <NavLink to= {`/reviews/${review.id}`}>view detailed review</NavLink>
                        </div>
-                       </ReviewDetailSty>
+            </>
             }
-        </>
+                       </ReviewDetailSty>
     )
 }
 

@@ -34,14 +34,11 @@ const AboutPage = () =>{
 
     return(
         <AboutSty>
-
             <h1>Developed by Cam Chandler</h1>
-
             <h2>Contact me</h2>
             <div className = 'links'>
                 <div className = 'site-link'>
-
-                <a href = 'https://github.com/CamChandler98'><img src = {githublogo} alt = 'github' ></img>      <p>GitHub</p></a>
+                <a href = 'https://github.com/CamChandler98'><img src = {githublogo} alt = 'github' ></img> <p>GitHub</p></a>
                 </div>
             </div>
         </AboutSty>
