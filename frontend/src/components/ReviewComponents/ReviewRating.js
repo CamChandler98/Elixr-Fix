@@ -3,11 +3,9 @@ import styled from 'styled-components'
 
 
 let RatingSty = styled.div`
-    .rating-container{
         display: flex;
         align-items: center;
         margin-top:2%
-    }
     .icon{
         width:50px;
         margin: -10px;
@@ -23,9 +21,7 @@ const ReviewRating = ({rating}) =>{
     let normalizedRating = Math.ceil(parseInt(rating))
     let controlArr = [1,2,3,4,5]
     return (
-        <>
         <RatingSty>
-            <div className = 'rating-container'>
                 <span className = 'text'>Rating: </span>
                 {controlArr.map( num => {
                     if(num > normalizedRating){
@@ -40,9 +36,8 @@ const ReviewRating = ({rating}) =>{
                         )
                     }
                 })}
-            </div>
+
         </RatingSty>
-        </>
     )
 }
 
