@@ -68,9 +68,9 @@ const ReviewDetails = ({reviewId}) => {
     let review = useSelector(state => state.reviews[reviewId])
 
     return(
-        <>
+
+        <ReviewDetailSty>
             {review &&
-                    <ReviewDetailSty>
                        <>
                        <span className = 'review header'>
                            <img className='profile-pic' src = {review.User.profilePictureUrl}/>
@@ -87,9 +87,8 @@ const ReviewDetails = ({reviewId}) => {
                            <NavLink to= {`/reviews/${review.id}`}>view detailed review</NavLink>
                        </div>
                    </>
-                </ReviewDetailSty>
             }
-        </>
+            </ReviewDetailSty>
     )
 }
 
