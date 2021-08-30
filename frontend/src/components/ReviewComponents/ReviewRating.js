@@ -3,9 +3,9 @@ import styled from 'styled-components'
 
 
 let RatingSty = styled.div`
-        display: flex;
-        align-items: center;
-        margin-top:2%
+    display: flex;
+    align-items: center;
+    margin-top:2%;
     .icon{
         width:50px;
         margin: -10px;
