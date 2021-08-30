@@ -43,8 +43,8 @@ const ReviewPageSty = styled.div`
     }
     h1{
         font-size: 25px;
-        padding:25px;
-        border-bottom: 1px solid #bbb9bb
+        padding-top: 20px;
+        text-justify:center;
     }
     .review-bottom{
         padding: 25px;
@@ -63,6 +63,21 @@ const ReviewPageSty = styled.div`
     }
     a:hover{
         transform: scale(1.01);
+    }
+    .review-top{
+        display:flex;
+        border-bottom: 1px solid #bbb9bb;
+        padding:25px;
+        align-items:center;
+    }
+    .review-top > img{
+        margin-right: 1.7%;
+        width:60px;
+        max-height: 60px;
+        object-fit: cover;
+        border-radius:50%;
+        box-shadow:  1px 4px 2px 1px rgb(195 191 191 / 61%);
+
     }
 
 `
@@ -105,7 +120,10 @@ const ReviewPage = () =>{
             {review &&
                 <div className = 'full-review'>
                 <div className = 'review-content'>
-                <NavLink to = {`/users/${review?.User?.username}`}><h1>{review?.User?.username}</h1></NavLink>
+                    <NavLink className = 'review-top' to = {`/users/${review?.User?.username}`}>
+                    <img src = {review.User.profilePictureUrl}/>
+                    <h1>{review?.User?.username}</h1>
+                    </NavLink>
                 <div className = 'review-bottom'>
                 {drink && <DrinkDetailStyled drink = {drink}></DrinkDetailStyled>}
                 <p>{review?.content}</p>
