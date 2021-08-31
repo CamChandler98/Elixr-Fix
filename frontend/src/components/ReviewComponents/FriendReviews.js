@@ -21,6 +21,7 @@ const FriendReviews = ({userId}) => {
     let reviews = Object.values(reviewsSate)
 
     useEffect(() =>{
+        let newArr = []
         for (let friend of friends){
 
             let id = friend?.userOneId === userId ? friend?.two?.id: friend?.one?.id
@@ -28,10 +29,13 @@ const FriendReviews = ({userId}) => {
             reviews.forEach( review => {
 
                 if(id === review.userId){
-                 friendReviews.push(review)
+                newArr.push(review)
                 }
 
             })}
+            setFriendReviews(newArr)
+
+        
     },[friendReviews])
 
 
