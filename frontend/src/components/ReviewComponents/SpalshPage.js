@@ -114,7 +114,7 @@ let SpalshPage = ({isLoaded}) => {
             </div>
             <div className = 'right-side'>
                 <div className = 'link-container'>
-                    <NavSty>
+                    {/* <NavSty> */}
                 <NavLink to = '/login'>
                     <span>Login</span>
                 </NavLink>
@@ -126,7 +126,7 @@ let SpalshPage = ({isLoaded}) => {
                 <NavLink to = '/categories'>
                 <span>Take A Look Around </span>
                 </NavLink>
-                </NavSty>
+                {/* </NavSty> */}
                 </div>
             </div>
             </div>
