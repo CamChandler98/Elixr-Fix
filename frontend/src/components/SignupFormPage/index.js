@@ -5,7 +5,7 @@ import styled from "styled-components";
 import * as sessionActions from "../../store/session";
 import profilePlaceholder from '../DrinkComponents/images/thumbnail/upload-profile-pic.svg'
 import removeIcon from '../DrinkComponents/images/thumbnail/remove-icon.svg'
-// import '../LoginFormPage/login.css'
+import '../LoginFormPage/login.css'
 
 const ImageSty = styled.div`
 margin: 0 auto;
