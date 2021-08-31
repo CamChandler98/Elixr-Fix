@@ -5,7 +5,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-
+import styled from "styled-components";
 import CategorySty from "./components/DrinkComponents/Category-PageStyle";
 import CategoryPage from "./components/DrinkComponents/Category-Page";
 import DrinkPage from "./components/DrinkComponents/DrinkPage";
