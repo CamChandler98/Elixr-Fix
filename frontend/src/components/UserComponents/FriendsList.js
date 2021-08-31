@@ -53,7 +53,6 @@ const FriendsList = () => {
 
 
     return(
-
         <FriendSty>
             {friends &&
             <>

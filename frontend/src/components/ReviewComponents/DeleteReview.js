@@ -7,7 +7,6 @@ import { removeReview } from "../../store/reviews"
 let DeleteSty = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@300;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Cookie&family=Mystery+Quest&display=swap');
-    .container{
         display:flex;
         flex-direction:column;
         align-items: center;
@@ -45,12 +44,10 @@ let DeleteReview = ({reviewId , closeModal}) =>{
 
     return(
         <DeleteSty>
-        <div className ='container'>
             <h1>
                 Are you sure? You can not go back
             </h1>
             <button className = "delete"onClick = {handleSubmit}>Delete</button>
-        </div>
         </DeleteSty>
     )
 }

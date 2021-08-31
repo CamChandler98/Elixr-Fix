@@ -67,8 +67,6 @@ const ReviewDetails = ({reviewId}) => {
     let review = useSelector(state => state.reviews[reviewId])
 
     return(
-
-
         <ReviewDetailSty>
             {review &&<>
                        <span className = 'review header'>

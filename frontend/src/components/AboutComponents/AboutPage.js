@@ -31,7 +31,6 @@ const AboutSty = styled.div`
     }
 `
 const AboutPage = () =>{
-
     return(
         <AboutSty>
             <h1>Developed by Cam Chandler</h1>
