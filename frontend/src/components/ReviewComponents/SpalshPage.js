@@ -3,74 +3,74 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import splashImage from '../DrinkComponents/images/thumbnail/logo.svg'
-
+import './SplashPage.css'
 import * as sessionActions from '../../store/session';
 
-let SplashSty =styled.div `
-@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
-    .container{
-        display: flex;
-        height:100vh;
-    }
-    img{
-        height:350px;
-        width:auto;
-        padding-left: 25px;
-    }
-    .left-side{
-        display: flex;
-        flex-direction: column;
-        align-items:center;
-        width:50%;
-    }
-    .right-side{
-        display: flex;
-        flex-direction: column;
-        justify-content:center;
-        align-items:center;
-        margin: 0;
-        background: rgb(143,69,182);
-        background: linear-gradient(330deg, rgba(143,69,182,1) 0%, rgba(169,140,209,1) 100%);
-        width:50%;
-        height:100vh;
+// let SplashSty =styled.div `
+// @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+//     .container{
+//         display: flex;
+//         height:100vh;
+//     }
+//     img{
+//         height:350px;
+//         width:auto;
+//         padding-left: 25px;
+//     }
+//     .left-side{
+//         display: flex;
+//         flex-direction: column;
+//         align-items:center;
+//         width:50%;
+//     }
+//     .right-side{
+//         display: flex;
+//         flex-direction: column;
+//         justify-content:center;
+//         align-items:center;
+//         margin: 0;
+//         background: rgb(143,69,182);
+//         background: linear-gradient(330deg, rgba(143,69,182,1) 0%, rgba(169,140,209,1) 100%);
+//         width:50%;
+//         height:100vh;
 
-    }
+//     }
 
-    h1{
-        font-size:80px;
-    }
-    .logo{
-        font-family: "Monoton";
-    }
-    .grey{
-        color: grey;
-    }
-`
+//     h1{
+//         font-size:80px;
+//     }
+//     .logo{
+//         font-family: "Monoton";
+//     }
+//     .grey{
+//         color: grey;
+//     }
+// `
 
-let NavSty = styled.div`
-    display: flex;
-    justify-content:center;
-    flex-direction: column;
-    align-items:center;
-    background-color: white;
-    padding: 7% 3%;
-    gap:25px;
-    width:300px;
-    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
-    border-radius: 4px;
+// let NavSty = styled.div`
+//     display: flex;
+//     justify-content:center;
+//     flex-direction: column;
+//     align-items:center;
+//     background-color: white;
+//     padding: 7% 3%;
+//     gap:25px;
+//     width:300px;
+//     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%);
+//     border-radius: 4px;
 
-    a{
-        text-decoration: none;
-        background-color: #5F1A37;
-        color: white;
-        padding: 5% 15%;
-        border-radius: 5px;
-    }
-    .or{
-        font-family: "Lato";
-        font-size: 20px;
-    }
-`
+//     a{
+//         text-decoration: none;
+//         background-color: #5F1A37;
+//         color: white;
+//         padding: 5% 15%;
+//         border-radius: 5px;
+//     }
+//     .or{
+//         font-family: "Lato";
+//         font-size: 20px;
+//     }
+// `
 let SpalshPage = ({isLoaded}) => {
 
     let dispatch = useDispatch()
@@ -115,7 +115,6 @@ let SpalshPage = ({isLoaded}) => {
             </div>
             <div className = 'right-side'>
                 <div className = 'link-container'>
-                    {/* <NavSty> */}
                 <NavLink to = '/login'>
                     <span>Login</span>
                 </NavLink>
@@ -127,7 +126,6 @@ let SpalshPage = ({isLoaded}) => {
                 <NavLink to = '/categories'>
                 <span>Take A Look Around </span>
                 </NavLink>
-                {/* </NavSty> */}
                 </div>
             </div>
             </div>
