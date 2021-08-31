@@ -27,11 +27,13 @@ function App() {
 
   return (
       <>
-        <Navigation isLoaded={isLoaded} />
-      <Switch>
       <Route exact path = '/'>
         <SpalshPage isLoaded = {isLoaded}/>
       </Route>
+          <>
+        <Navigation isLoaded={isLoaded} />
+      </>
+      <Switch>
       <Route path = '/about'>
           <AboutPage></AboutPage>
       </Route>

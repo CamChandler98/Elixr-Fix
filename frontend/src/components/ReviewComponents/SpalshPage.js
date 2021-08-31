@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import splashImage from '../DrinkComponents/images/thumbnail/logo.svg'
-import './SplashPage.css'
+import './SpalshPage.css'
 import * as sessionActions from '../../store/session';
 
 // let SplashSty =styled.div `
@@ -101,10 +101,10 @@ let SpalshPage = ({isLoaded}) => {
         // <SplashSty>
         <>
             {isLoaded &&
-            <div className = 'container'>
-            <div className = 'left-side'>
+            <div className = 'splash-container'>
+            <div className = 'splash-left-side'>
             <h1 className = 'logo'>Welcome!</h1>
-            <img alt ='splash' src = {splashImage}>
+            <img className = 'splash' alt ='splash' src = {splashImage}>
             </img>
             <h1 className = 'logo'>
                 Elixr
@@ -113,7 +113,7 @@ let SpalshPage = ({isLoaded}) => {
                 Explore an Ocean of Potions
             </h2>
             </div>
-            <div className = 'right-side'>
+            <div className = 'splash-right-side'>
                 <div className = 'link-container'>
                 <NavLink to = '/login'>
                     <span>Login</span>
