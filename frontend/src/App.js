@@ -30,14 +30,14 @@ function App() {
       <Switch>
       <Route exact path = '/'>
         <SpalshPage isLoaded = {isLoaded}/>
+      <Route exact path ='/thecoven'>
+        <LatestReviews/>
+      </Route>
       </Route>
       <>
       <Navigation isLoaded={isLoaded} />
       <Route path = '/about'>
           <AboutPage></AboutPage>
-      </Route>
-      <Route exact path ='/thecoven'>
-        <LatestReviews/>
       </Route>
       <Route isLoaded = {isLoaded} exact path = "/categories">
             <CategorySty isLoaded = {isLoaded}/>
