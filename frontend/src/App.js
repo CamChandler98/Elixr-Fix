@@ -30,7 +30,7 @@ function App() {
         <Navigation isLoaded={isLoaded} />
       <Switch>
       <Route exact path = '/'>
-        <SpalshPage isLoaded = {isLoaded}/>
+        {/* <SpalshPage isLoaded = {isLoaded}/> */}
       </Route>
       <Route path = '/about'>
           <AboutPage></AboutPage>
