@@ -50,7 +50,7 @@ function App() {
         <Route path = {'/reviews/:reviewId'} component = {ReviewPage} />
         {/* {isLoaded && <Route path = {'/review/new'} component = {sessionUser ? AddReviewForm : LoginFormPage}/>} */}
       {isLoaded && (
-        <Switch>
+          <>
           <Route path="/login">
             <LoginFormPage />
           </Route>
@@ -63,7 +63,7 @@ function App() {
           <Route path = '/friends'>
             <FriendsList />
           </Route>
-        </Switch>
+        </>
       )
       }
       </Switch>
