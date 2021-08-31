@@ -30,9 +30,9 @@ function App() {
       <Switch>
       <Route exact path = '/'>
         <SpalshPage isLoaded = {isLoaded}/>
+      </Route>
       <Route exact path ='/thecoven'>
         <LatestReviews/>
-      </Route>
       </Route>
       <>
       <Navigation isLoaded={isLoaded} />
