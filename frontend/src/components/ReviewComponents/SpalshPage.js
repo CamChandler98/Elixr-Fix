@@ -98,7 +98,8 @@ let SpalshPage = ({isLoaded}) => {
 
 
     return(
-        <SplashSty>
+        // <SplashSty>
+        <>
             {isLoaded &&
             <div className = 'container'>
             <div className = 'left-side'>
@@ -131,7 +132,8 @@ let SpalshPage = ({isLoaded}) => {
             </div>
             </div>
         }
-        </SplashSty>
+        {/* </SplashSty> */}
+        </>
     )
 }
 
