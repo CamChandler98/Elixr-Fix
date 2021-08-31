@@ -31,13 +31,13 @@ function App() {
       <Route exact path = '/'>
         <SpalshPage isLoaded = {isLoaded}/>
       </Route>
-      <Route exact path ='/thecoven'>
-        <LatestReviews/>
-      </Route>
       <>
       <Navigation isLoaded={isLoaded} />
       <Route path = '/about'>
           <AboutPage></AboutPage>
+      </Route>
+      <Route exact path ='/thecoven'>
+        <LatestReviews/>
       </Route>
       <Route isLoaded = {isLoaded} exact path = "/categories">
             <CategorySty isLoaded = {isLoaded}/>
