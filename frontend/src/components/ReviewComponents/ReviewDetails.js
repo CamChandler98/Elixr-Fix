@@ -13,6 +13,11 @@ const ReviewDetailSty = styled.div`
     flex-direction: column;
     padding: 50px 0px;
 
+    a{
+        text-decoration: none;
+        color: rgb(198, 135, 231);
+        font-weight: 500;
+    }
     .review-image{
         display:flex;
         justify-content:center;
@@ -32,11 +37,6 @@ const ReviewDetailSty = styled.div`
         border-radius: 7px;
         box-sizing: border-box;
         padding: 10px 15px;
-    }
-    a{
-        text-decoration: none;
-        color: rgb(198, 135, 231);
-        font-weight: 500;
     }
     a:hover{
 
@@ -67,9 +67,9 @@ const ReviewDetails = ({reviewId}) => {
     let review = useSelector(state => state.reviews[reviewId])
 
     return(
-        <ReviewDetailSty>
-            {review &&<>
-                       <span className = 'review header'>
+<>
+            {review &&<ReviewDetailSty>
+                       <span className = 'review-header'>
                            <img className='profile-pic' src = {review.User.profilePictureUrl}/>
                            <NavLink to = {`/users/${review?.User?.username}`}>{review?.User?.username}</NavLink> is drinking <NavLink to = {`/drinks/${review?.drinkId}`}>{review?.Drink?.name}</NavLink> brewed by <NavLink to ={`/users/${review?.Drink?.User?.username}`}>{review?.Drink?.User?.username}</NavLink> </span>
 
@@ -83,9 +83,9 @@ const ReviewDetails = ({reviewId}) => {
                        <div className = 'detail-link'>
                            <NavLink to= {`/reviews/${review.id}`}>view detailed review</NavLink>
                        </div>
-            </>
-            }
                        </ReviewDetailSty>
+            }
+            </>
     )
 }
 

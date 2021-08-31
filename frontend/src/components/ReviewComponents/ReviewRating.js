@@ -14,7 +14,7 @@ let RatingSty = styled.div`
         filter: invert(.5) sepia(1) saturate(3) hue-rotate(205deg);
     }
     .text{
-        margin-right: 2%
+        margin-right: 2%;
     }
 `
 const ReviewRating = ({rating}) =>{
