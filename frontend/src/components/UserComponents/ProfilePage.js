@@ -218,8 +218,8 @@ const ProfilePage = () => {
                     </div>
                 )
             })}
-            {focus === 'requests' && <RequestPage />}
-            {focus === 'friends' && <FriendReviews userId = {userId}></FriendReviews>}
+            {focus === 'requests' && owner && <RequestPage />}
+            {focus === 'friends' && owner && <FriendReviews userId = {userId}></FriendReviews>}
 
         </div>
         </div>}
