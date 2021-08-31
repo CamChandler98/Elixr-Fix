@@ -6,8 +6,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import styled from "styled-components";
-// import CategorySty from "./components/DrinkComponents/Category-PageStyle";
-// import CategoryPage from "./components/DrinkComponents/Category-Page";
+import CategorySty from "./components/DrinkComponents/Category-PageStyle";
+import CategoryPage from "./components/DrinkComponents/Category-Page";
 import DrinkPage from "./components/DrinkComponents/DrinkPage";
 import LatestReviews from "./components/ReviewComponents/LatestReviews";
 import ReviewPage from "./components/ReviewComponents/ReviewPage";
@@ -39,12 +39,12 @@ function App() {
       <Route exact path ='/thecoven'>
         <LatestReviews/>
       </Route>
-      {/* <Route isLoaded = {isLoaded} exact path = "/categories">
+      <Route isLoaded = {isLoaded} exact path = "/categories">
             <CategorySty isLoaded = {isLoaded}/>
           </Route>
           <Route path = {'/categories/:categoryId/:categoryName'}>
           <CategoryPage />
-        </Route> */}
+        </Route>
         <Route exact path = {'/drinks/:drinkId'}>
           <DrinkPage />
         </Route>
