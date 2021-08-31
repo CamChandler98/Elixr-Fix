@@ -122,6 +122,10 @@ const ProfilePage = () => {
     useEffect(()=>{
 
         dispatch(getUser(username))
+
+        return(
+            setFocus('user')
+        )
     },[username,dispatch])
 
     let user = useSelector(state => state?.profile)
