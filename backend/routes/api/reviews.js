@@ -56,7 +56,6 @@ router.post('/' , singleMulterUpload("image"),asyncHandler(async (req,res)=> {
     try{
        imageUrl = await singlePublicFileUpload(req.file)
     }catch(e){
-        console.log(e)
         imageUrl = null
     }
 

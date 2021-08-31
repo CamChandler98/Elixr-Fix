@@ -7,11 +7,11 @@ const { genPicUrl } = require('./url-gen');
 
 
  const genUser = async (genNum) => {
-     console.log('here')
+    //  console.log('here')
     faker.seed(200)
     let usersArr = []
     let profileUrls = await genPicUrl('icons/')
-    console.log('urls',profileUrls)
+    // console.log('urls',profileUrls)
     for(let i = 0; i < genNum; i++ ){
         let username = i%4 !== 0 ? faker.name.findName(): faker.internet.userName()
         let email = faker.internet.email(username)
@@ -125,5 +125,5 @@ const genReviews = async () =>{
 }
 
 let test = genUser()
-console.log(test, 'heeeerer')
+// console.log(test, 'heeeerer')
 module.exports = {genUser,genPotions, genReviews}

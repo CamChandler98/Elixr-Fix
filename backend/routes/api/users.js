@@ -66,7 +66,7 @@ router.post(
     singleMulterUpload("image"),
     validateSignup,
     asyncHandler(async (req, res) => {
-  
+
       const { email, password, username } = req.body;
 
       let profilePictureUrl
@@ -74,7 +74,7 @@ router.post(
          profilePictureUrl = await singlePublicFileUpload(req.file)
       }catch(e){
           console.log(e)
-          profilePictureUrl = null //todo add default profile pics
+          profilePictureUrl = 'https://elixrawsbucket.s3.amazonaws.com/icons/pyramid.png'
       }
 
       const private = false

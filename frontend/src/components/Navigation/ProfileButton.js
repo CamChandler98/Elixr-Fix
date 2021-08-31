@@ -39,7 +39,7 @@ let ProfileButton = () => {
       }, [showMenu]);
 
       const profilePictureUrl = useSelector(state => state?.session.user.profilePictureUrl)
-      console.log('url',profilePictureUrl)
+    //   console.log('url',profilePictureUrl)
     const logout = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout());
