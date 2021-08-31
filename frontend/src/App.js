@@ -26,12 +26,10 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
       <Switch>
       <Route exact path = '/'>
-        {/* <SpalshPage isLoaded = {isLoaded}/> */}
+        <SpalshPage isLoaded = {isLoaded}/>
       </Route>
-      <>
       <Navigation isLoaded={isLoaded} />
       <Route path = '/about'>
           <AboutPage></AboutPage>
@@ -66,9 +64,8 @@ function App() {
           </Route>
         </Switch>
       )
-      }</>
+      }
       </Switch>
-    </>
   );
 }
 
