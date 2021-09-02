@@ -33,17 +33,20 @@ export const deleteOneReq = (id) => async(dispatch) => {
     }
 }
 export const getFriendRequests = (userId) => async (dispatch) =>{
+    let res
     if (userId){
-    let res = await csrfFetch(`/api/requests/${userId}`)
+     res = await csrfFetch(`/api/requests/${userId}`)
     }
     if(res.ok){
     let requests = await res.json()
     dispatch(getReq(requests))
     }
+    return
 }
 export const goGetFriends = (userId) => async (dispatch) =>{
+    let res
     if(userId){
-    let res = await csrfFetch(`/api/friends/${userId}`)
+     res = await csrfFetch(`/api/friends/${userId}`)
     }
     if(res.ok){
     let friends = await res.json()
