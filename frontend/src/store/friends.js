@@ -34,7 +34,7 @@ export const deleteOneReq = (id) => async(dispatch) => {
 }
 export const getFriendRequests = (userId) => async (dispatch) =>{
     let res
-    if (userId){
+    if (typeof userId  === "number"){
      res = await csrfFetch(`/api/requests/${userId}`)
     }
     if(res.ok){
@@ -45,7 +45,7 @@ export const getFriendRequests = (userId) => async (dispatch) =>{
 }
 export const goGetFriends = (userId) => async (dispatch) =>{
     let res
-    if(userId){
+    if(typeof userId  === "number"){
      res = await csrfFetch(`/api/friends/${userId}`)
     }
     if(res.ok){
