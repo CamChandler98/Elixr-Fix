@@ -35,7 +35,8 @@ const RequestButton = ({userTwoId, friends}) =>{
                     setPending(false)
                 }
             }
-            fetchData()
+            if(userOneId){
+            fetchData()}
             return (setPending(null))
         },[userTwoId, userOneId])
 
