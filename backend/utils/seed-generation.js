@@ -81,8 +81,6 @@ const genCount = async (Model) => {
 
 
 
-
-
 const assignRandomReview = function (obj) {
     let keys = Object.keys(obj);
     let picked = keys[keys.length * Math.random() << 0]
@@ -92,8 +90,6 @@ const assignRandomReview = function (obj) {
     }
     return picked
 };
-
-// let reviewImages = ['https://elixrawsbucket.s3.amazonaws.com/review-images/Galaxy-Lemonade-Final3.jpg','https://elixrawsbucket.s3.amazonaws.com/review-images/Galaxy-Magic-Moscow-Mule-A-Vodka-Cocktail-9-735x488.jpg','https://elixrawsbucket.s3.amazonaws.com/review-images/Magical-Color-Changing-Cocktails-The-Flavor-Bender-10.jpg','https://elixrawsbucket.s3.amazonaws.com/review-images/Unicorn-Blood-Cocktail.jpg'] ;
 
 const genReviews = async () =>{
     let reviewImages = await genPicUrl('potion/')
@@ -124,6 +120,4 @@ const genReviews = async () =>{
     return reviewArr
 }
 
-let test = genUser()
-// console.log(test, 'heeeerer')
 module.exports = {genUser,genPotions, genReviews}
