@@ -28,6 +28,7 @@ let ProfileMenuSty = styled.div`
     }
     .menuLink:hover{
         color: rgba(169,140,209,1);
+        cursor: pointer;
     }
     .welcome{
         font-size: 18px;

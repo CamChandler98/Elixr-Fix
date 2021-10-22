@@ -12,6 +12,10 @@ const RequestButtonSty = styled.div`
         border-style:none;
         margin-top: 6px;
     }
+
+    button:hover{
+        cursor: ${props => props.friends || props.pending? 'default': 'pointer' }
+    }
 `
 const RequestButton = ({userTwoId, friends}) =>{
     const [pending, setPending] = useState(null)
@@ -56,7 +60,7 @@ const RequestButton = ({userTwoId, friends}) =>{
         fetchData()
     }
     return (
-        <RequestButtonSty>
+        <RequestButtonSty friends = {friends} pending = {pending}>
         <>
         {userOneId && userTwoId && <button onClick ={pending === false && !friends ? sendRequest: null}>{pending === true? 'Request Pending': friends === true ? 'Congrats! Friends!': 'Send Request'}</button>}
         </>
