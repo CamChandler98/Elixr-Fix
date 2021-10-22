@@ -34,11 +34,17 @@ img{
 }
 .camera-button:hover{
     transform: scale(1.07);
+    cursor: pointer;
 }
+
 .remove{
     width:90px;
     margin: 2%;
 
+}
+
+.remove:hover{
+    cursor: pointer;
 }
 .submit{
     width: 50%;
@@ -51,6 +57,7 @@ img{
 }
 .submit:hover{
     background-color:  rgb(162 99 195);
+    cursor: pointer;
 }
 .rating-container{
     display:flex;
