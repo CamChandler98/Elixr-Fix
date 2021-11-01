@@ -45,6 +45,34 @@ Elixr is a web application that allows users to submit fantastical beverages, le
   - AJAX
   - Express Validator Library
   - CSURF Library
+### Features
+
+- Users can rate and leave reviews of potions!
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/CamChandler98/Elixr-Fix/main/visualization/elixr-review.gif" alt="elxir rating">
+</p>
+
+- Users can create new potions 
+
+<p align="center">
+  <img src="https://github.com/CamChandler98/Elixr-Fix/blob/main/visualization/Elixr-Create-Drink.gif?raw=true" alt="elxir drink">
+</p>
+
+- Users can send, accept and deny friend requests!
+<p align="center">
+  <img src="https://github.com/CamChandler98/Elixr-Fix/blob/main/visualization/Elixr-Send-Friend.gif?raw=true" alt="elxir send friend">
+</p>
+<p align="center">
+  <img src="https://github.com/CamChandler98/Elixr-Fix/blob/main/visualization/Elixr-Accept-Friend.gif?raw=true" alt="elxir accept friend">
+</p>
+
+
+- Users have a profile where they can view their reviews, friends , and drinks!
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/CamChandler98/Elixr-Fix/main/visualization/Elixr-Profile.png" alt="elxir profile">
+</p>
 
 ### Code Snippets
   #### Send a friend request
